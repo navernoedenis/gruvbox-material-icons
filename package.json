@@ -23,7 +23,8 @@
     "changelog": "changelog-machine --config changelog.config.json",
     "preversion": "npm run contributors && git add images/contributors.png && npm run preview && git add images/fileIcons.png && git add images/folderIcons.png",
     "version": "npm run changelog && git add CHANGELOG.md",
-    "vscode:prepublish": "npm run lint && npm run compile && npm run package-web"
+    "vscode:prepublish": "npm run lint && npm run compile && npm run package-web",
+    "vscode:package": "npx vsce package"
   },
   "publisher": "navernoedenis",
   "engines": {
@@ -240,6 +241,7 @@
     "@types/vscode": "~1.51.0",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
+    "@vscode/vsce": "^2.20.1",
     "axios": "^1.4.0",
     "changelog-machine": "^1.0.2",
     "eslint": "^8.16.0",

@@ -78,7 +78,7 @@ const savePreview = (
   createScreenshot(filePath, fileName)
     .then(() => {
       console.log(
-        '> Material Icon Theme:',
+        '> Gruvbox Material Icon Theme:',
         green(`Successfully created ${fileName} preview image!`)
       );
     })

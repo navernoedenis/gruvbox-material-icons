@@ -48,7 +48,7 @@ Press `Ctrl-Shift-P` to open the command palette and type `Gruvbox Material Icon
 | **Restore Default Configuration** | Reset to the default configuration.                                                 |
 | **Toggle Grayscale**              | Set icon saturation to `0` (grayscale), or `1` (color).                             |
 
-## Contributors
+<!-- ## Contributors
 
 <a href="https://github.com/PKief/vscode-material-icon-theme/graphs/contributors">
     <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/contributors.png" alt="Contributors">
@@ -56,4 +56,4 @@ Press `Ctrl-Shift-P` to open the command palette and type `Gruvbox Material Icon
 
 **Would you like to contribute?**
 
-Take a look at the [contribution guidelines](https://github.com/PKief/vscode-material-icon-theme/blob/main/CONTRIBUTING.md) and open a [new issue](https://github.com/PKief/vscode-material-icon-theme/issues) or [pull request](https://github.com/PKief/vscode-material-icon-theme/pulls) on GitHub.
+Take a look at the [contribution guidelines](https://github.com/PKief/vscode-material-icon-theme/blob/main/CONTRIBUTING.md) and open a [new issue](https://github.com/PKief/vscode-material-icon-theme/issues) or [pull request](https://github.com/PKief/vscode-material-icon-theme/pulls) on GitHub. -->

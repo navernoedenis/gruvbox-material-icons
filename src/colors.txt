@@ -1,0 +1,11 @@
+folderColor: '#45403d';
+
+black: '#665c54';
+blue: '#7daea3';
+cyan: '#89b482';
+green: '#a9b665';
+orange: '#e78a4e';
+pink: '#d3869b';
+red: '#ea6962';
+white: '#dfbf8e';
+yellow: '#e3ae5a';

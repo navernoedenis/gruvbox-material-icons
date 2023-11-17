@@ -2,8 +2,8 @@
 <defs>
 <style>.a{fill:#e78a4e;}.b{fill:url(#a);}</style>
 <radialGradient id="a" cx="205.45" cy="208.29" r="225.35" gradientTransform="matrix(.045559 0 0 .045602 2.8884 2.8796)" gradientUnits="userSpaceOnUse">
-<stop stop-color="#ffd104" offset="0"/>
-<stop stop-color="#faa60e" offset=".35"/>
+<stop stop-color="#e78a4e" offset="0"/>
+<stop stop-color="#e78a4e" offset=".35"/>
 <stop stop-color="#e78a4e" offset="1"/>
 </radialGradient>
 </defs>

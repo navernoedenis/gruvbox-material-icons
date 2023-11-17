@@ -11,9 +11,10 @@ interface FolderColor {
 const iconPalette: FolderColor[] = [
   { label: 'Default', hex: '#45403d' },
   { label: 'Blue', hex: '#7daea3' },
+  { label: 'Cyan', hex: '#89b482' },
   { label: 'Green', hex: '#a9b665' },
-  { label: 'Red', hex: '#dc635c' },
   { label: 'Orange', hex: '#e78a4e' },
+  { label: 'Red', hex: '#dc635c' },
   { label: 'Yellow', hex: '#d8a657' },
   { label: 'Custom Color', hex: 'Custom HEX Code' },
 ];

@@ -11,10 +11,11 @@ interface FileColor {
 const iconPalette: FileColor[] = [
   { label: 'Default', hex: '#45403d' },
   { label: 'Blue', hex: '#7daea3' },
+  { label: 'Cyan', hex: '#89b482' },
   { label: 'Green', hex: '#a9b665' },
-  { label: 'Red', hex: '#dc635c' },
   { label: 'Orange', hex: '#e78a4e' },
-  { label: 'Yellow', hex: '#d8a657' },
+  { label: 'Red', hex: '#dc635c' },
+  { label: 'Yellow', hex: '#e3ae5a' },
   { label: 'Custom Color', hex: 'Custom HEX Code' },
 ];
 

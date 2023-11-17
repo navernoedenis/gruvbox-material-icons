@@ -9,13 +9,12 @@ interface FolderColor {
 }
 
 const iconPalette: FolderColor[] = [
-  { label: 'Grey (Default)', hex: '#90a4ae' },
-  { label: 'Blue', hex: '#42a5f5' },
-  { label: 'Green', hex: '#7CB342' },
-  { label: 'Teal', hex: '#26A69A' },
-  { label: 'Red', hex: '#EF5350' },
-  { label: 'Orange', hex: '#FF7043' },
-  { label: 'Yellow', hex: '#FDD835' },
+  { label: 'Default', hex: '#45403d' },
+  { label: 'Blue', hex: '#7daea3' },
+  { label: 'Green', hex: '#a9b665' },
+  { label: 'Red', hex: '#dc635c' },
+  { label: 'Orange', hex: '#e78a4e' },
+  { label: 'Yellow', hex: '#d8a657' },
   { label: 'Custom Color', hex: 'Custom HEX Code' },
 ];
 

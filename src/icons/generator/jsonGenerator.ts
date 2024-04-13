@@ -80,25 +80,25 @@ export const createIconFile = (
     updatedConfigs?.opacity &&
     !validateOpacityValue(updatedConfigs?.opacity)
   ) {
-    throw Error('Material Icons: Invalid opacity value!');
+    throw Error('Gruvbox Material Icons: Invalid opacity value!');
   }
   if (
     updatedConfigs?.saturation &&
     !validateSaturationValue(updatedConfigs?.saturation)
   ) {
-    throw Error('Material Icons: Invalid saturation value!');
+    throw Error('Gruvbox Material Icons: Invalid saturation value!');
   }
   if (
     updatedConfigs?.folders?.color &&
     !validateHEXColorCode(updatedConfigs?.folders?.color)
   ) {
-    throw Error('Material Icons: Invalid folder color value!');
+    throw Error('Gruvbox Material Icons: Invalid folder color value!');
   }
   if (
     updatedConfigs?.files?.color &&
     !validateHEXColorCode(updatedConfigs?.files?.color)
   ) {
-    throw Error('Material Icons: Invalid file color value!');
+    throw Error('Gruvbox Material Icons: Invalid file color value!');
   }
 
   try {
@@ -159,7 +159,7 @@ export const createIconFile = (
 export const getDefaultIconOptions = (): Required<IconJsonOptions> => ({
   folders: {
     theme: 'specific',
-    color: '#90a4ae',
+    color: '#45403d',
     associations: {},
   },
   activeIconPack: 'angular',
@@ -167,7 +167,7 @@ export const getDefaultIconOptions = (): Required<IconJsonOptions> => ({
   opacity: 1,
   saturation: 1,
   files: {
-    color: '#90a4ae',
+    color: '#45403d',
     associations: {},
   },
   languages: { associations: {} },

@@ -2,7 +2,7 @@
   "name": "gruvbox-material-icons",
   "displayName": "Gruvbox Material Icons",
   "description": "Gruvbox Material Icons for Visual Studio Code",
-  "version": "3.1.2",
+  "version": "3.2.0",
   "scripts": {
     "build": "npm run compile:dev && npm run generateJson",
     "check": "ts-node ./src/scripts/icons/checks",

@@ -9,3 +9,11 @@ pink: '#d3869b';
 red: '#ea6962';
 white: '#ebdbb2';
 yellow: '#e3ae5a';
+
+dim_blue: '#68948a',
+dim_cyan: '#72966c',
+dim_green: '#8f9a52',
+dim_orange: '#bd6f3e',
+dim_purple: '#ab6c7d',
+dim_red: '#b85651',
+dim_yellow: '#c18f41',

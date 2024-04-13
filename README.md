@@ -14,7 +14,7 @@ by Philipp Kief
 
 <!-- https://shields.io/badges/static-badge -->
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=navernoedenis.gruvbox-material-icons"><img src="https://img.shields.io/badge/v3.1.2-%23000?style=for-the-badge&label=version&color=%23a9b665" alt="version"></a>&nbsp;
+  <a href="https://marketplace.visualstudio.com/items?itemName=navernoedenis.gruvbox-material-icons"><img src="https://img.shields.io/badge/v3.2.0-%23000?style=for-the-badge&label=version&color=%23a9b665" alt="version"></a>&nbsp;
   <a href="https://marketplace.visualstudio.com/items?itemName=navernoedenis.gruvbox-material-icons"><img src="https://img.shields.io/badge/5%2F5(2)-%23000?style=for-the-badge&label=rating&color=%23e3ae5a" alt="rating"></a>&nbsp;
   <a href="https://marketplace.visualstudio.com/items?itemName=navernoedenis.gruvbox-material-icons"><img src="https://img.shields.io/badge/1K%2B-%23000?style=for-the-badge&label=installs&color=%23ebdbb2" alt="installs"></a>&nbsp;
 </p>

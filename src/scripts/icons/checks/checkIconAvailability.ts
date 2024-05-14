@@ -101,7 +101,6 @@ const isIconAvailable = (
   if (!isClone && icon.highContrast && iconColor === IconColor.highContrast) {
     iconName += highContrastColorFileEnding;
   }
-
   if (
     !availableIcons[iconName] &&
     wrongIconNames[iconType].indexOf(iconName) === -1
@@ -196,12 +195,12 @@ const handleErrors = () => {
     wrongIconNames.languageIcons.length;
   if (amountOfErrors > 0) {
     console.log(
-      '> Material Icon Theme:',
+      '> Gruvbox Material Icons:',
       red(`Found ${amountOfErrors} error(s) in the icon configuration!`)
     );
   } else {
     console.log(
-      '> Material Icon Theme:',
+      '> Gruvbox Material Icons:',
       green('Passed icon availability checks!')
     );
   }

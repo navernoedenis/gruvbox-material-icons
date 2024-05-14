@@ -2,7 +2,7 @@ import { Translation } from '../models';
 
 export const translation: Translation = {
   activate: 'Activeer',
-  activated: 'Material Icon Thema is actief.',
+  activated: 'Gruvbox Material Icons is actief.',
   iconPacks: {
     selectPack: 'Selecteer een iconpakket',
     description: "Selecteer het '%0' iconpakket",

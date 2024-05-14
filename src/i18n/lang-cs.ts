@@ -2,7 +2,7 @@ import { Translation } from '../models';
 
 export const translation: Translation = {
   activate: 'Aktivovat',
-  activated: 'Material Icon Téma je aktivní.',
+  activated: 'Gruvbox Material Icons je aktivní.',
   iconPacks: {
     selectPack: 'Vyberte sadu ikon',
     description: "Vyberte sadu ikon '%0'",

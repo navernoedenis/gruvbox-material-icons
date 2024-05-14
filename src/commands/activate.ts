@@ -13,13 +13,13 @@ const setIconTheme = async () => {
   try {
     await getConfig().update(
       'workbench.iconTheme',
-      'material-icon-theme',
+      'gruvbox-material-icons',
       true
     );
 
     // local workspace config
     if (getConfig().inspect('workbench.iconTheme')?.workspaceValue) {
-      getConfig().update('workbench.iconTheme', 'material-icon-theme');
+      getConfig().update('workbench.iconTheme', 'gruvbox-material-icons');
     }
     codeWindow.showInformationMessage(translate('activated'));
   } catch (error) {

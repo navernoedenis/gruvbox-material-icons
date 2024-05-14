@@ -2,6 +2,7 @@ import { fileIcons } from './../../icons/fileIcons';
 import { folderIcons } from './../../icons/folderIcons';
 import { languageIcons } from './../../icons/languageIcons';
 import { generatePreview } from './preview';
+import { FolderType } from '../../models';
 
 const filterDuplicates = (icons: string[]) => {
   return [...new Set(icons)];
@@ -16,32 +17,53 @@ const basicFileIcons = filterDuplicates(
     .concat(languageIcons.map((i) => i.icon.name))
 ).map((i) => ({ iconName: i, label: i }));
 
-const folderThemes = filterDuplicates(
-  folderIcons
-    .map((theme) => {
-      const folders = [];
-      if (theme.icons && theme.icons.length > 0) {
-        folders.push(
-          ...theme.icons
-            // remove icons that are clones
-            .filter((i) => i.clone === undefined)
-            .map((i) => i.name)
-        );
-      }
-      return [...folders];
-    })
-    .reduce((a, b) => a.concat(b))
-).map((i) => ({ iconName: i, label: i.replace('folder-', '') }));
+const folderTheme = (type: FolderType) => {
+  let foldername = 'folder-';
+  let regex = new RegExp(foldername, 'gi');
 
-generatePreview('fileIcons', basicFileIcons, 5, [
+  if (type === 'colorful') {
+    foldername = 'colorful-folder-';
+    regex = new RegExp(foldername, 'gi');
+  }
+
+  return filterDuplicates(
+    folderIcons
+      .map((theme) => {
+        const folders = [];
+        if (theme.icons && theme.icons.length > 0) {
+          folders.push(
+            ...theme.icons
+              // remove icons that are clones
+              .filter((i) => i.clone === undefined)
+              .filter((i) => i.name.startsWith(foldername))
+              .map((i) => i.name)
+          );
+        }
+        return [...folders];
+      })
+      .reduce((a, b) => a.concat(b))
+  ).map((i) => ({ iconName: i, label: i.replace(regex, '') }));
+};
+
+const columnsOnScreen = 5;
+
+generatePreview('fileIcons', basicFileIcons, columnsOnScreen, [
   'virtual',
   'powerpoint',
   'word',
   'credits',
 ]);
-generatePreview('folderIcons', folderThemes, 5, [
-  'folder-aurelia',
-  'folder-phpmailer',
-  'folder-syntax',
-  'folder-ansible',
-]);
+
+generatePreview(
+  'folderIcons-specific',
+  folderTheme('specific'),
+  columnsOnScreen,
+  ['folder-aurelia', 'folder-phpmailer', 'folder-syntax', 'folder-ansible']
+);
+
+generatePreview(
+  'folderIcons-colorful',
+  folderTheme('colorful'),
+  columnsOnScreen,
+  ['folder-aurelia', 'folder-phpmailer', 'folder-syntax', 'folder-ansible']
+);

@@ -26,7 +26,7 @@ const extensionCommands: { [commmand: string]: () => Promise<void> } = {
 export const registered = Object.keys(extensionCommands).map((commandName) => {
   const callCommand = () => extensionCommands[commandName]();
   return commands.registerCommand(
-    `material-icon-theme.${commandName}`,
+    `gruvbox-material-icons.${commandName}`,
     callCommand
   );
 });

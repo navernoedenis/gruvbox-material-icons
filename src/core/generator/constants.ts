@@ -1,7 +1,7 @@
 /**
  * Name of the VS Code extension.
  */
-export const extensionName = 'material-icon-theme';
+export const extensionName = 'gruvbox-material-icons';
 
 /**
  * Path where the icons are located.

@@ -88,6 +88,9 @@ export function replacementMap(baseColor: string, colors: Set<string>) {
   if (!isValidColor(baseColor)) {
     // try to get it from the material palette by key
     const matCol = getMaterialColorByKey(baseColor);
+    console.log('baseColor: ', baseColor);
+    console.log('MATT COLOR: ', matCol);
+
     if (matCol === undefined) {
       throw new Error(`Invalid color: ${baseColor}`);
     }

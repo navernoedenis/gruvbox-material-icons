@@ -268,7 +268,7 @@ To create an icon pack, the following steps have to be completed:
 
 1. Add the name of the icon pack to the enum in [iconPack.ts](src/models/icons/iconPack.ts)
 2. Add translations to the package.nls.\*.json files under the section `configuration.activeIconPack` (at least to [package.nls.json](package.nls.json), the English translation file)
-3. Adjust [package.json](package.json) under `configuration.properties.material-icon-theme.activeIconPack`
+3. Adjust [package.json](package.json) under `configuration.properties.gruvbox-material-icons.activeIconPack`
 4. Use the icon pack inside the [fileIcons.ts](src/icons/fileIcons.ts),[folderIcons.ts](src/icons/folderIcons.ts) or [languageIcons.ts](src/icons/languageIcons.ts) files in the `enabledFor` attribute
 
 <h3 id="pixel-perfect-icons">Designing Pixel-Perfect Icons</h3>
@@ -345,8 +345,8 @@ The following example demonstrates how the shapes of the `rust` file icon can be
   light: true, // needed if a `lightColor` is provided
   clone: {
     base: 'rust',
-    color: 'green-400',
-    lightColor: 'green-700', // optional
+    color: 'green',
+    lightColor: 'green', // optional
   },
 },
 ```

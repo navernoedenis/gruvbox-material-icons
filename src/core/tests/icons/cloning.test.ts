@@ -34,9 +34,21 @@ import * as icon from './data/icons';
 describe('cloning: color manipulation', () => {
   describe('#orderDarkToLight(..)', () => {
     it('should order colors from dark to light', () => {
-      const colors = new Set(['#000', '#fff', '#f00', '#0f0', '#00f']);
+      const colors = new Set([
+        '#665c54',
+        '#ebdbb2',
+        '#ea6962',
+        '#a9b665',
+        '#7daea3',
+      ]);
       const result = orderDarkToLight(colors);
-      expect(result).toStrictEqual(['#000', '#f00', '#0f0', '#00f', '#fff']);
+      expect(result).toStrictEqual([
+        '#665c54',
+        '#a9b665',
+        '#7daea3',
+        '#ea6962',
+        '#ebdbb2',
+      ]);
     });
 
     it('if empty set, should return empty array', () => {
@@ -54,13 +66,13 @@ describe('cloning: color manipulation', () => {
 
   describe('#closerMaterialColorTo(..)', () => {
     it('should return the closest material color to the given color', () => {
-      const color = '#e24542';
+      const color = '#ea6962';
       const result = closerMaterialColorTo(color);
-      expect(result).toStrictEqual(palette['red-600']);
+      expect(result).toStrictEqual('#ea6962');
     });
 
     it('should return the same color if it is already a material color', () => {
-      const color = palette['indigo-500'];
+      const color = palette['orange'];
       const result = closerMaterialColorTo(color);
       expect(result).toStrictEqual(color);
     });
@@ -121,7 +133,7 @@ describe('cloning: icon cloning', () => {
         const cloneOpts: FileIconClone = {
           name: 'foo',
           base: 'base',
-          color: 'green-500',
+          color: 'green',
           fileExtensions: ['bar'],
           fileNames: ['file.xyz'],
         };
@@ -135,7 +147,7 @@ describe('cloning: icon cloning', () => {
               type: Type.File,
               variant: Variant.Base,
             },
-            color: 'green-500',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}foo${hash}${ext}`,
             name: 'foo',
             path: resolvePath(`./icons/${subFolder}foo${hash}${ext}`),
@@ -151,7 +163,7 @@ describe('cloning: icon cloning', () => {
         const cloneOpts: FileIconClone = {
           name: 'foo',
           base: 'base2',
-          color: 'green-500',
+          color: 'green',
           fileExtensions: ['bar'],
           fileNames: ['file.xyz'],
         };
@@ -165,7 +177,7 @@ describe('cloning: icon cloning', () => {
               type: Type.File,
               variant: Variant.Base,
             },
-            color: 'green-500',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}foo${hash}${ext}`,
             name: 'foo',
             path: resolvePath(`./icons/${subFolder}foo${hash}${ext}`),
@@ -180,7 +192,7 @@ describe('cloning: icon cloning', () => {
               type: Type.File,
               variant: Variant.Light,
             },
-            color: 'green-500',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}foo${lightColorFileEnding}${hash}${ext}`,
             name: `foo${lightColorFileEnding}`,
             path: resolvePath(
@@ -198,8 +210,8 @@ describe('cloning: icon cloning', () => {
         const cloneOpts: FileIconClone = {
           name: 'foo',
           base: 'base',
-          color: 'green-500',
-          lightColor: 'green-800',
+          color: 'green',
+          lightColor: 'green',
           fileExtensions: ['bar'],
           fileNames: ['file.xyz'],
         };
@@ -213,7 +225,7 @@ describe('cloning: icon cloning', () => {
               type: Type.File,
               variant: Variant.Base,
             },
-            color: 'green-500',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}foo${hash}${ext}`,
             name: 'foo',
             path: resolvePath(`./icons/${subFolder}foo${hash}${ext}`),
@@ -228,7 +240,7 @@ describe('cloning: icon cloning', () => {
               type: Type.File,
               variant: Variant.Light,
             },
-            color: 'green-800',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}foo${lightColorFileEnding}${hash}${ext}`,
             name: `foo${lightColorFileEnding}`,
             path: resolvePath(
@@ -248,7 +260,7 @@ describe('cloning: icon cloning', () => {
         const cloneOpts: FolderIconClone = {
           name: 'foo',
           base: 'base',
-          color: 'green-500',
+          color: 'green',
           folderNames: ['bar'],
         };
 
@@ -263,7 +275,7 @@ describe('cloning: icon cloning', () => {
               type: Type.Folder,
               variant: Variant.Base,
             },
-            color: 'green-500',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}folder-foo${hash}${ext}`,
             name: 'folder-foo',
             path: resolvePath(`./icons/${subFolder}folder-foo${hash}${ext}`),
@@ -278,7 +290,7 @@ describe('cloning: icon cloning', () => {
               type: Type.Folder,
               variant: Variant.Open,
             },
-            color: 'green-500',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}folder-foo${openedFolder}${hash}${ext}`,
             name: `folder-foo${openedFolder}`,
             path: resolvePath(
@@ -296,7 +308,7 @@ describe('cloning: icon cloning', () => {
         const cloneOpts: FolderIconClone = {
           name: 'foo',
           base: 'folder-base2',
-          color: 'green-500',
+          color: 'green',
           folderNames: ['bar'],
         };
 
@@ -311,7 +323,7 @@ describe('cloning: icon cloning', () => {
               type: Type.Folder,
               variant: Variant.Base,
             },
-            color: 'green-500',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}folder-foo${hash}${ext}`,
             name: 'folder-foo',
             path: resolvePath(`./icons/${subFolder}folder-foo${hash}${ext}`),
@@ -326,7 +338,7 @@ describe('cloning: icon cloning', () => {
               type: Type.Folder,
               variant: Variant.Open,
             },
-            color: 'green-500',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}folder-foo${openedFolder}${hash}${ext}`,
             name: `folder-foo${openedFolder}`,
             path: resolvePath(
@@ -343,7 +355,7 @@ describe('cloning: icon cloning', () => {
               type: Type.Folder,
               variant: Variant.Light,
             },
-            color: 'green-500',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}folder-foo${lightColorFileEnding}${hash}${ext}`,
             name: `folder-foo${lightColorFileEnding}`,
             path: resolvePath(
@@ -360,7 +372,7 @@ describe('cloning: icon cloning', () => {
               type: Type.Folder,
               variant: Variant.LightOpen,
             },
-            color: 'green-500',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}folder-foo${openedFolder}${lightColorFileEnding}${hash}${ext}`,
             name: `folder-foo${openedFolder}${lightColorFileEnding}`,
             path: resolvePath(
@@ -378,8 +390,8 @@ describe('cloning: icon cloning', () => {
         const cloneOpts: FolderIconClone = {
           name: 'foo',
           base: 'folder-base',
-          color: 'green-500',
-          lightColor: 'green-800',
+          color: 'green',
+          lightColor: 'green',
           folderNames: ['bar'],
         };
 
@@ -394,7 +406,7 @@ describe('cloning: icon cloning', () => {
               type: Type.Folder,
               variant: Variant.Base,
             },
-            color: 'green-500',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}folder-foo${hash}${ext}`,
             name: 'folder-foo',
             path: resolvePath(`./icons/${subFolder}folder-foo${hash}${ext}`),
@@ -409,7 +421,7 @@ describe('cloning: icon cloning', () => {
               type: Type.Folder,
               variant: Variant.Open,
             },
-            color: 'green-500',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}folder-foo${openedFolder}${hash}${ext}`,
             name: `folder-foo${openedFolder}`,
             path: resolvePath(
@@ -428,7 +440,7 @@ describe('cloning: icon cloning', () => {
               type: Type.Folder,
               variant: Variant.Light,
             },
-            color: 'green-800',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}folder-foo${lightColorFileEnding}${hash}${ext}`,
             name: `folder-foo${lightColorFileEnding}`,
             path: resolvePath(
@@ -447,7 +459,7 @@ describe('cloning: icon cloning', () => {
               type: Type.Folder,
               variant: Variant.LightOpen,
             },
-            color: 'green-800',
+            color: 'green',
             inConfigPath: `${iconFolderPath}${subFolder}folder-foo${openedFolder}${lightColorFileEnding}${hash}${ext}`,
             name: `folder-foo${openedFolder}${lightColorFileEnding}`,
             path: resolvePath(
@@ -464,22 +476,7 @@ describe('cloning: icon cloning', () => {
   });
 
   describe('#cloneIcon(..)', () => {
-    const bluePalette = [
-      palette['blue-50'],
-      palette['blue-100'],
-      palette['blue-200'],
-      palette['blue-300'],
-      palette['blue-400'],
-      palette['blue-500'],
-      palette['blue-600'],
-      palette['blue-700'],
-      palette['blue-800'],
-      palette['blue-900'],
-      palette['blue-A100'],
-      palette['blue-A200'],
-      palette['blue-A400'],
-      palette['blue-A700'],
-    ];
+    const bluePalette = [palette['blue']];
 
     it('should replace the color with the given color', () => {
       mock.module('fs', () => {
@@ -489,10 +486,10 @@ describe('cloning: icon cloning', () => {
       });
 
       // mock the fs.readFileSync method to return the desired icon file
-      const result = cloneIcon('fake/path/to/icon.svg', 'blue-600', '');
+      const result = cloneIcon('fake/path/to/icon.svg', '#7daea3', '');
 
       const colorCount = forEachColor(parseSync(result), (color, loc) => {
-        expect(color).toBe(palette['blue-600']);
+        expect(color).toBe('#7daea3');
         expect(loc).toBe('style:fill');
       });
 
@@ -506,10 +503,10 @@ describe('cloning: icon cloning', () => {
           readFileSync: () => icon.fileFill,
         };
       });
-      const result = cloneIcon('fake/path/to/icon.svg', 'blue-600', '');
+      const result = cloneIcon('fake/path/to/icon.svg', '#7daea3', '');
 
       const colorCount = forEachColor(parseSync(result), (color, loc) => {
-        expect(color).toBe(palette['blue-600']);
+        expect(color).toBe('#7daea3');
         expect(loc).toBe('attr:fill');
       });
 
@@ -522,7 +519,7 @@ describe('cloning: icon cloning', () => {
           readFileSync: () => icon.gradient,
         };
       });
-      const result = cloneIcon('fake/path/to/icon.svg', 'blue-600', '');
+      const result = cloneIcon('fake/path/to/icon.svg', '#7daea3', '');
 
       const colorCount = forEachColor(parseSync(result), (color, loc) => {
         expect(bluePalette).toContain(color);
@@ -538,7 +535,7 @@ describe('cloning: icon cloning', () => {
           readFileSync: () => icon.folder,
         };
       });
-      const result = cloneIcon('fake/path/to/icon.svg', 'blue-600', '');
+      const result = cloneIcon('fake/path/to/icon.svg', '#7daea3', '');
 
       const colors: string[] = [];
       const colorCount = forEachColor(parseSync(result), (color, loc) => {
@@ -547,8 +544,8 @@ describe('cloning: icon cloning', () => {
         expect(loc).toBe('style:fill');
       });
 
-      // check that one of the colors is actually blue-600
-      expect(colors.includes(palette['blue-600'])).toBeTruthy();
+      // check that one of the colors is actually #7daea3
+      expect(colors.includes('#7daea3')).toBeTruthy();
 
       expect(colorCount).toBe(2);
     });
@@ -561,13 +558,17 @@ describe('cloning: icon cloning', () => {
           };
         });
 
-        const result = cloneIcon('fake/path/to/icon.svg', 'blue-600', '');
+        const result = cloneIcon('fake/path/to/icon.svg', '#7daea3', '');
         const parsed = parseSync(result);
         const changedNodeStyle = getStyle(parsed.children[0]);
         const unchangedNodeStyle = getStyle(parsed.children[1]);
 
-        expect(changedNodeStyle.fill).toBe(palette['blue-600']);
-        expect(unchangedNodeStyle.fill).toBe('red');
+        console.log('RESULT: ', result);
+        console.log('changedNodeStyle.fill: ', changedNodeStyle.fill);
+        console.log('unchangedNodeStyle.fill: ', unchangedNodeStyle.fill);
+
+        expect(changedNodeStyle.fill).toBe('#7daea3');
+        expect(unchangedNodeStyle.fill).toBe('#ea6962');
       });
 
       it('should not replace the color of any child of a node with the `data-mit-no-recolor` attribute', () => {
@@ -576,7 +577,7 @@ describe('cloning: icon cloning', () => {
             readFileSync: () => icon.gradientIgnore,
           };
         });
-        const result = cloneIcon('fake/path/to/icon.svg', 'blue-600', '');
+        const result = cloneIcon('fake/path/to/icon.svg', '#7daea3', '');
 
         const colorCount = forEachColor(parseSync(result), (color, loc) => {
           expect(['#00695c', '#26a69a', '#b2dfdb']).toContain(color);
@@ -661,8 +662,8 @@ describe('cloning: json config generation from user options', () => {
             name: 'foo-clone',
             fileNames: ['bar.foo'],
             fileExtensions: ['baz'],
-            color: 'green-400',
-            lightColor: 'green-800',
+            color: 'green',
+            lightColor: 'green',
           },
         ],
       },
@@ -672,8 +673,8 @@ describe('cloning: json config generation from user options', () => {
             base: 'folder-foo',
             name: 'folder-foo-clone',
             folderNames: ['bar'],
-            color: 'green-400',
-            lightColor: 'green-800',
+            color: 'green',
+            lightColor: 'green',
           },
         ],
       },

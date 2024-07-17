@@ -1,4 +1,4 @@
 {
-  "repositoryUrl": "https://github.com/material-extensions/vscode-material-icon-theme",
+  "repositoryUrl": "https://github.com/material-extensions/vscode-gruvbox-material-icons",
   "blacklistPattern": "^Release \\d+\\.\\d+\\.\\d+|^\\d+\\.\\d+\\.\\d+$"
 }

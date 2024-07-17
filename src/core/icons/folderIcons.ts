@@ -1,37 +1,57 @@
-import type { FolderTheme } from '../models/icons/folders/folderTheme';
+import type {
+  FolderTheme,
+  FolderThemeName,
+} from '../models/icons/folders/folderTheme';
 import { IconPack } from '../models/icons/iconPack';
 
 /**
  * Defines folder icons
  */
 export const folderIcons: FolderTheme[] = [
+  getFolderIcons('specific'),
+  getFolderIcons('colorful'),
   {
-    name: 'specific',
+    name: 'classic',
+    defaultIcon: { name: 'folder' },
+    rootFolder: { name: 'folder-root' },
+  },
+  { name: 'none', defaultIcon: { name: '' } },
+];
+
+function getFolderIcons(type: FolderThemeName): FolderTheme {
+  let prefix = `${type}-folder`;
+
+  if (type === 'specific') {
+    prefix = 'folder';
+  }
+
+  return {
+    name: type,
     defaultIcon: { name: 'folder' },
     rootFolder: { name: 'folder-root' },
     icons: [
       {
-        name: 'folder-robot',
+        name: `${prefix}-robot`,
         folderNames: ['bot', 'robot'],
       },
       {
-        name: 'folder-src',
+        name: `${prefix}-src`,
         folderNames: ['src', 'srcs', 'source', 'sources', 'code'],
       },
       {
-        name: 'folder-dist',
+        name: `${prefix}-dist`,
         folderNames: ['dist', 'out', 'build', 'release', 'bin'],
       },
       {
-        name: 'folder-css',
+        name: `${prefix}-css`,
         folderNames: ['css', 'stylesheet', 'stylesheets', 'style', 'styles'],
       },
-      { name: 'folder-sass', folderNames: ['sass', 'scss'] },
-      { name: 'folder-television', folderNames: ['tv', 'television'] },
-      { name: 'folder-desktop', folderNames: ['desktop'] },
-      { name: 'folder-console', folderNames: ['console'] },
+      { name: `${prefix}-sass`, folderNames: ['sass', 'scss'] },
+      { name: `${prefix}-television`, folderNames: ['tv', 'television'] },
+      { name: `${prefix}-desktop`, folderNames: ['desktop'] },
+      { name: `${prefix}-console`, folderNames: ['console'] },
       {
-        name: 'folder-images',
+        name: `${prefix}-images`,
         folderNames: [
           'images',
           'image',
@@ -60,33 +80,33 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-scripts',
+        name: `${prefix}-scripts`,
         folderNames: ['script', 'scripts', 'scripting'],
       },
-      { name: 'folder-node', folderNames: ['node_modules'] },
+      { name: `${prefix}-node`, folderNames: ['node_modules'] },
       {
-        name: 'folder-javascript',
+        name: `${prefix}-javascript`,
         folderNames: ['js', 'javascript', 'javascripts'],
       },
-      { name: 'folder-json', folderNames: ['json', 'jsons'] },
-      { name: 'folder-font', folderNames: ['font', 'fonts'] },
-      { name: 'folder-bower', folderNames: ['bower_components'] },
+      { name: `${prefix}-json`, folderNames: ['json', 'jsons'] },
+      { name: `${prefix}-font`, folderNames: ['font', 'fonts'] },
+      { name: `${prefix}-bower`, folderNames: ['bower_components'] },
       {
-        name: 'folder-test',
+        name: `${prefix}-test`,
         folderNames: ['test', 'tests', 'testing', 'snapshots', 'spec', 'specs'],
       },
       {
-        name: 'folder-jinja',
+        name: `${prefix}-jinja`,
         folderNames: ['jinja', 'jinja2', 'j2'],
         light: true,
       },
-      { name: 'folder-markdown', folderNames: ['markdown', 'md'] },
-      { name: 'folder-pdm', folderNames: ['pdm-plugins', 'pdm-build'] },
-      { name: 'folder-php', folderNames: ['php'] },
-      { name: 'folder-phpmailer', folderNames: ['phpmailer'] },
-      { name: 'folder-sublime', folderNames: ['sublime'] },
+      { name: `${prefix}-markdown`, folderNames: ['markdown', 'md'] },
+      { name: `${prefix}-pdm`, folderNames: ['pdm-plugins', 'pdm-build'] },
+      { name: `${prefix}-php`, folderNames: ['php'] },
+      { name: `${prefix}-phpmailer`, folderNames: ['phpmailer'] },
+      { name: `${prefix}-sublime`, folderNames: ['sublime'] },
       {
-        name: 'folder-docs',
+        name: `${prefix}-docs`,
         folderNames: [
           'doc',
           'docs',
@@ -99,16 +119,16 @@ export const folderIcons: FolderTheme[] = [
           'articles',
         ],
       },
-      { name: 'folder-gh-workflows', folderNames: ['github/workflows'] },
+      { name: `${prefix}-gh-workflows`, folderNames: ['github/workflows'] },
       {
-        name: 'folder-git',
+        name: `${prefix}-git`,
         folderNames: ['git', 'patches', 'githooks', 'submodules'],
       },
-      { name: 'folder-github', folderNames: ['github'] },
-      { name: 'folder-gitlab', folderNames: ['gitlab'] },
-      { name: 'folder-vscode', folderNames: ['vscode', 'vscode-test'] },
+      { name: `${prefix}-github`, folderNames: ['github'] },
+      { name: `${prefix}-gitlab`, folderNames: ['gitlab'] },
+      { name: `${prefix}-vscode`, folderNames: ['vscode', 'vscode-test'] },
       {
-        name: 'folder-views',
+        name: `${prefix}-views`,
         folderNames: [
           'view',
           'views',
@@ -120,11 +140,11 @@ export const folderIcons: FolderTheme[] = [
           'html',
         ],
       },
-      { name: 'folder-vue', folderNames: ['vue'] },
-      { name: 'folder-vuepress', folderNames: ['vuepress'] },
-      { name: 'folder-expo', folderNames: ['expo', 'expo-shared'] },
+      { name: `${prefix}-vue`, folderNames: ['vue'] },
+      { name: `${prefix}-vuepress`, folderNames: ['vuepress'] },
+      { name: `${prefix}-expo`, folderNames: ['expo', 'expo-shared'] },
       {
-        name: 'folder-config',
+        name: `${prefix}-config`,
         folderNames: [
           'cfg',
           'cfgs',
@@ -142,7 +162,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-i18n',
+        name: `${prefix}-i18n`,
         folderNames: [
           'i18n',
           'internationalization',
@@ -161,16 +181,16 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-components',
+        name: `${prefix}-components`,
         folderNames: ['components', 'widget', 'widgets', 'fragments'],
       },
       {
-        name: 'folder-verdaccio',
+        name: `${prefix}-verdaccio`,
         folderNames: ['verdaccio'],
       },
-      { name: 'folder-aurelia', folderNames: ['aurelia_project'] },
+      { name: `${prefix}-aurelia`, folderNames: ['aurelia_project'] },
       {
-        name: 'folder-resource',
+        name: `${prefix}-resource`,
         folderNames: [
           'resource',
           'resources',
@@ -183,7 +203,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-lib',
+        name: `${prefix}-lib`,
         folderNames: [
           'lib',
           'libs',
@@ -195,7 +215,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-theme',
+        name: `${prefix}-theme`,
         folderNames: [
           'themes',
           'theme',
@@ -205,10 +225,10 @@ export const folderIcons: FolderTheme[] = [
           'designs',
         ],
       },
-      { name: 'folder-webpack', folderNames: ['webpack'] },
-      { name: 'folder-global', folderNames: ['global'] },
+      { name: `${prefix}-webpack`, folderNames: ['webpack'] },
+      { name: `${prefix}-global`, folderNames: ['global'] },
       {
-        name: 'folder-public',
+        name: `${prefix}-public`,
         folderNames: [
           'public',
           'www',
@@ -221,90 +241,90 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-include',
+        name: `${prefix}-include`,
         folderNames: ['inc', 'include', 'includes', 'partial', 'partials'],
       },
       {
-        name: 'folder-docker',
+        name: `${prefix}-docker`,
         folderNames: ['docker', 'dockerfiles', 'dockerhub'],
       },
       {
-        name: 'folder-ngrx-effects',
+        name: `${prefix}-ngrx-effects`,
         folderNames: ['effects'],
         enabledFor: [IconPack.Ngrx],
       },
       {
-        name: 'folder-ngrx-store',
+        name: `${prefix}-ngrx-store`,
         folderNames: ['store'],
         enabledFor: [IconPack.Ngrx],
       },
       {
-        name: 'folder-ngrx-state',
+        name: `${prefix}-ngrx-state`,
         folderNames: ['states', 'state'],
         enabledFor: [IconPack.Ngrx],
       },
       {
-        name: 'folder-ngrx-reducer',
+        name: `${prefix}-ngrx-reducer`,
         folderNames: ['reducers', 'reducer'],
         enabledFor: [IconPack.Ngrx],
       },
       {
-        name: 'folder-ngrx-actions',
+        name: `${prefix}-ngrx-actions`,
         folderNames: ['actions'],
         enabledFor: [IconPack.Ngrx],
       },
       {
-        name: 'folder-ngrx-entities',
+        name: `${prefix}-ngrx-entities`,
         folderNames: ['entities'],
         enabledFor: [IconPack.Ngrx],
       },
       {
-        name: 'folder-ngrx-selectors',
+        name: `${prefix}-ngrx-selectors`,
         folderNames: ['selectors'],
         enabledFor: [IconPack.Ngrx],
       },
       {
-        name: 'folder-redux-reducer',
+        name: `${prefix}-redux-reducer`,
         folderNames: ['reducers', 'reducer'],
         enabledFor: [IconPack.Redux],
       },
       {
-        name: 'folder-redux-actions',
+        name: `${prefix}-redux-actions`,
         folderNames: ['actions'],
         enabledFor: [IconPack.Redux],
       },
       {
-        name: 'folder-redux-selector',
+        name: `${prefix}-redux-selector`,
         folderNames: ['selectors', 'selector'],
         enabledFor: [IconPack.Redux],
       },
       {
-        name: 'folder-redux-store',
+        name: `${prefix}-redux-store`,
         folderNames: ['store', 'stores'],
         enabledFor: [IconPack.Redux],
       },
       {
-        name: 'folder-react-components',
+        name: `${prefix}-react-components`,
         folderNames: ['components', 'react', 'jsx', 'reactjs'],
         enabledFor: [IconPack.React, IconPack.Redux],
       },
       {
-        name: 'folder-astro',
+        name: `${prefix}-astro`,
         folderNames: ['.astro'],
       },
       {
-        name: 'folder-database',
+        name: `${prefix}-database`,
         folderNames: ['db', 'data', 'database', 'databases', 'sql'],
       },
-      { name: 'folder-log', folderNames: ['log', 'logs', 'logging'] },
-      { name: 'folder-target', folderNames: ['target'] },
+      { name: `${prefix}-log`, folderNames: ['log', 'logs', 'logging'] },
+      { name: `${prefix}-target`, folderNames: ['target'] },
       {
-        name: 'folder-temp',
+        name: `${prefix}-temp`,
         folderNames: ['temp', 'tmp', 'cached', 'cache'],
       },
-      { name: 'folder-aws', folderNames: ['aws'] },
+      { name: `${prefix}-aws`, folderNames: ['aws'] },
       {
-        name: 'folder-audio',
+        name: `${prefix}-audio`,
         folderNames: [
           'aud',
           'auds',
@@ -316,24 +336,30 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-video',
+        name: `${prefix}-video`,
         folderNames: ['vid', 'vids', 'video', 'videos', 'movie', 'movies'],
       },
       {
-        name: 'folder-kubernetes',
+        name: `${prefix}-kubernetes`,
         folderNames: ['kubernetes', 'k8s'],
       },
-      { name: 'folder-import', folderNames: ['import', 'imports', 'imported'] },
-      { name: 'folder-export', folderNames: ['export', 'exports', 'exported'] },
-      { name: 'folder-wakatime', folderNames: ['wakatime'] },
-      { name: 'folder-circleci', folderNames: ['circleci'] },
       {
-        name: 'folder-wordpress',
+        name: `${prefix}-import`,
+        folderNames: ['import', 'imports', 'imported'],
+      },
+      {
+        name: `${prefix}-export`,
+        folderNames: ['export', 'exports', 'exported'],
+      },
+      { name: `${prefix}-wakatime`, folderNames: ['wakatime'] },
+      { name: `${prefix}-circleci`, folderNames: ['circleci'] },
+      {
+        name: `${prefix}-wordpress`,
         folderNames: ['wordpress-org', 'wp-content'],
       },
-      { name: 'folder-gradle', folderNames: ['gradle'] },
+      { name: `${prefix}-gradle`, folderNames: ['gradle'] },
       {
-        name: 'folder-coverage',
+        name: `${prefix}-coverage`,
         folderNames: [
           'coverage',
           'nyc-output',
@@ -345,7 +371,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-class',
+        name: `${prefix}-class`,
         folderNames: [
           'class',
           'classes',
@@ -356,7 +382,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-other',
+        name: `${prefix}-other`,
         folderNames: [
           'other',
           'others',
@@ -367,17 +393,20 @@ export const folderIcons: FolderTheme[] = [
           'etc',
         ],
       },
-      { name: 'folder-lua', folderNames: ['lua'] },
-      { name: 'folder-turborepo', folderNames: ['.turbo'] },
+      { name: `${prefix}-lua`, folderNames: ['lua'] },
+      { name: `${prefix}-turborepo`, folderNames: ['.turbo'] },
       {
-        name: 'folder-typescript',
+        name: `${prefix}-typescript`,
         folderNames: ['typescript', 'ts', 'typings', '@types', 'types'],
       },
-      { name: 'folder-graphql', folderNames: ['graphql', 'gql'] },
-      { name: 'folder-routes', folderNames: ['routes', 'router', 'routers'] },
-      { name: 'folder-ci', folderNames: ['ci'] },
+      { name: `${prefix}-graphql`, folderNames: ['graphql', 'gql'] },
       {
-        name: 'folder-benchmark',
+        name: `${prefix}-routes`,
+        folderNames: ['routes', 'router', 'routers'],
+      },
+      { name: `${prefix}-ci`, folderNames: ['ci'] },
+      {
+        name: `${prefix}-benchmark`,
         folderNames: [
           'benchmark',
           'benchmarks',
@@ -388,7 +417,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-messages',
+        name: `${prefix}-messages`,
         folderNames: [
           'messages',
           'messaging',
@@ -399,9 +428,9 @@ export const folderIcons: FolderTheme[] = [
           'conversations',
         ],
       },
-      { name: 'folder-less', folderNames: ['less'] },
+      { name: `${prefix}-less`, folderNames: ['less'] },
       {
-        name: 'folder-gulp',
+        name: `${prefix}-gulp`,
         folderNames: [
           'gulp',
           'gulp-tasks',
@@ -412,18 +441,18 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-python',
+        name: `${prefix}-python`,
         folderNames: ['python', 'pycache', 'pytest_cache'],
       },
       {
-        name: 'folder-mojo',
+        name: `${prefix}-mojo`,
         folderNames: ['mojo'],
       },
-      { name: 'folder-moon', folderNames: ['moon'] },
-      { name: 'folder-debug', folderNames: ['debug', 'debugging'] },
-      { name: 'folder-fastlane', folderNames: ['fastlane'] },
+      { name: `${prefix}-moon`, folderNames: ['moon'] },
+      { name: `${prefix}-debug`, folderNames: ['debug', 'debugging'] },
+      { name: `${prefix}-fastlane`, folderNames: ['fastlane'] },
       {
-        name: 'folder-plugin',
+        name: `${prefix}-plugin`,
         folderNames: [
           'plugin',
           'plugins',
@@ -438,9 +467,12 @@ export const folderIcons: FolderTheme[] = [
           'modules',
         ],
       },
-      { name: 'folder-middleware', folderNames: ['middleware', 'middlewares'] },
       {
-        name: 'folder-controller',
+        name: `${prefix}-middleware`,
+        folderNames: ['middleware', 'middlewares'],
+      },
+      {
+        name: `${prefix}-controller`,
         folderNames: [
           'controller',
           'controllers',
@@ -452,26 +484,26 @@ export const folderIcons: FolderTheme[] = [
           'handlers',
         ],
       },
-      { name: 'folder-ansible', folderNames: ['ansible'] },
+      { name: `${prefix}-ansible`, folderNames: ['ansible'] },
       {
-        name: 'folder-server',
+        name: `${prefix}-server`,
         folderNames: ['server', 'servers', 'backend', 'backends'],
       },
       {
-        name: 'folder-client',
+        name: `${prefix}-client`,
         folderNames: ['client', 'clients', 'frontend', 'frontends', 'pwa'],
       },
-      { name: 'folder-tasks', folderNames: ['tasks', 'tickets'] },
-      { name: 'folder-android', folderNames: ['android'] },
-      { name: 'folder-ios', folderNames: ['ios'] },
+      { name: `${prefix}-tasks`, folderNames: ['tasks', 'tickets'] },
+      { name: `${prefix}-android`, folderNames: ['android'] },
+      { name: `${prefix}-ios`, folderNames: ['ios'] },
       {
-        name: 'folder-ui',
+        name: `${prefix}-ui`,
         folderNames: ['presentation', 'gui', 'ui', 'ux'],
       },
-      { name: 'folder-upload', folderNames: ['uploads', 'upload'] },
-      { name: 'folder-download', folderNames: ['downloads', 'download'] },
+      { name: `${prefix}-upload`, folderNames: ['uploads', 'upload'] },
+      { name: `${prefix}-download`, folderNames: ['downloads', 'download'] },
       {
-        name: 'folder-tools',
+        name: `${prefix}-tools`,
         folderNames: [
           'tools',
           'toolkit',
@@ -481,12 +513,12 @@ export const folderIcons: FolderTheme[] = [
           'tooling',
         ],
       },
-      { name: 'folder-helper', folderNames: ['helpers', 'helper'] },
-      { name: 'folder-serverless', folderNames: ['serverless'] },
-      { name: 'folder-api', folderNames: ['api', 'apis', 'restapi'] },
-      { name: 'folder-app', folderNames: ['app', 'apps'] },
+      { name: `${prefix}-helper`, folderNames: ['helpers', 'helper'] },
+      { name: `${prefix}-serverless`, folderNames: ['serverless'] },
+      { name: `${prefix}-api`, folderNames: ['api', 'apis', 'restapi'] },
+      { name: `${prefix}-app`, folderNames: ['app', 'apps'] },
       {
-        name: 'folder-apollo',
+        name: `${prefix}-apollo`,
         folderNames: [
           'apollo',
           'apollo-client',
@@ -495,7 +527,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-archive',
+        name: `${prefix}-archive`,
         folderNames: [
           'arc',
           'arcs',
@@ -514,25 +546,25 @@ export const folderIcons: FolderTheme[] = [
           'histories',
         ],
       },
-      { name: 'folder-batch', folderNames: ['batch', 'batchs', 'batches'] },
-      { name: 'folder-buildkite', folderNames: ['buildkite'] },
-      { name: 'folder-cluster', folderNames: ['cluster', 'clusters'] },
+      { name: `${prefix}-batch`, folderNames: ['batch', 'batchs', 'batches'] },
+      { name: `${prefix}-buildkite`, folderNames: ['buildkite'] },
+      { name: `${prefix}-cluster`, folderNames: ['cluster', 'clusters'] },
       {
-        name: 'folder-command',
+        name: `${prefix}-command`,
         folderNames: ['command', 'commands', 'cmd', 'cli', 'clis'],
       },
-      { name: 'folder-constant', folderNames: ['constant', 'constants'] },
+      { name: `${prefix}-constant`, folderNames: ['constant', 'constants'] },
       {
-        name: 'folder-container',
+        name: `${prefix}-container`,
         folderNames: ['container', 'containers', 'devcontainer'],
       },
-      { name: 'folder-content', folderNames: ['content', 'contents'] },
-      { name: 'folder-context', folderNames: ['context', 'contexts'] },
-      { name: 'folder-core', folderNames: ['core'] },
-      { name: 'folder-delta', folderNames: ['delta', 'deltas', 'changes'] },
-      { name: 'folder-dump', folderNames: ['dump', 'dumps'] },
+      { name: `${prefix}-content`, folderNames: ['content', 'contents'] },
+      { name: `${prefix}-context`, folderNames: ['context', 'contexts'] },
+      { name: `${prefix}-core`, folderNames: ['core'] },
+      { name: `${prefix}-delta`, folderNames: ['delta', 'deltas', 'changes'] },
+      { name: `${prefix}-dump`, folderNames: ['dump', 'dumps'] },
       {
-        name: 'folder-examples',
+        name: `${prefix}-examples`,
         folderNames: [
           'demo',
           'demos',
@@ -544,11 +576,11 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-environment',
+        name: `${prefix}-environment`,
         folderNames: ['env', 'envs', 'environment', 'environments', 'venv'],
       },
       {
-        name: 'folder-functions',
+        name: `${prefix}-functions`,
         folderNames: [
           'func',
           'funcs',
@@ -566,7 +598,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-generator',
+        name: `${prefix}-generator`,
         folderNames: [
           'generator',
           'generators',
@@ -578,12 +610,12 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-hook',
+        name: `${prefix}-hook`,
         folderNames: ['hook', 'hooks', 'trigger', 'triggers'],
       },
-      { name: 'folder-job', folderNames: ['job', 'jobs'] },
+      { name: `${prefix}-job`, folderNames: ['job', 'jobs'] },
       {
-        name: 'folder-keys',
+        name: `${prefix}-keys`,
         folderNames: [
           'key',
           'keys',
@@ -594,26 +626,29 @@ export const folderIcons: FolderTheme[] = [
           'secrets',
         ],
       },
-      { name: 'folder-layout', folderNames: ['layout', 'layouts'] },
+      { name: `${prefix}-layout`, folderNames: ['layout', 'layouts'] },
       {
-        name: 'folder-mail',
+        name: `${prefix}-mail`,
         folderNames: ['mail', 'mails', 'email', 'emails', 'smtp', 'mailers'],
       },
-      { name: 'folder-mappings', folderNames: ['mappings', 'mapping'] },
-      { name: 'folder-meta', folderNames: ['meta'] },
-      { name: 'folder-changesets', folderNames: ['changesets', 'changeset'] },
+      { name: `${prefix}-mappings`, folderNames: ['mappings', 'mapping'] },
+      { name: `${prefix}-meta`, folderNames: ['meta'] },
       {
-        name: 'folder-packages',
+        name: `${prefix}-changesets`,
+        folderNames: ['changesets', 'changeset'],
+      },
+      {
+        name: `${prefix}-packages`,
         folderNames: ['package', 'packages', 'pkg', 'pkgs'],
       },
-      { name: 'folder-shared', folderNames: ['shared', 'common'] },
+      { name: `${prefix}-shared`, folderNames: ['shared', 'common'] },
       {
-        name: 'folder-shader',
+        name: `${prefix}-shader`,
         folderNames: ['glsl', 'hlsl', 'shader', 'shaders'],
       },
-      { name: 'folder-stack', folderNames: ['stack', 'stacks'] },
+      { name: `${prefix}-stack`, folderNames: ['stack', 'stacks'] },
       {
-        name: 'folder-template',
+        name: `${prefix}-template`,
         folderNames: [
           'template',
           'templates',
@@ -622,24 +657,24 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-utils',
+        name: `${prefix}-utils`,
         folderNames: ['util', 'utils', 'utility', 'utilities'],
       },
-      { name: 'folder-supabase', folderNames: ['supabase'] },
-      { name: 'folder-private', folderNames: ['private'] },
-      { name: 'folder-linux', folderNames: ['linux', 'linuxbsd', 'unix'] },
-      { name: 'folder-windows', folderNames: ['windows', 'win'] },
+      { name: `${prefix}-supabase`, folderNames: ['supabase'] },
+      { name: `${prefix}-private`, folderNames: ['private'] },
+      { name: `${prefix}-linux`, folderNames: ['linux', 'linuxbsd', 'unix'] },
+      { name: `${prefix}-windows`, folderNames: ['windows', 'win'] },
       {
-        name: 'folder-macos',
+        name: `${prefix}-macos`,
         folderNames: ['macos', 'mac', 'osx', 'DS_Store'],
       },
       {
-        name: 'folder-error',
+        name: `${prefix}-error`,
         folderNames: ['error', 'errors', 'err', 'errs', 'crash', 'crashes'],
       },
-      { name: 'folder-event', folderNames: ['event', 'events'] },
+      { name: `${prefix}-event`, folderNames: ['event', 'events'] },
       {
-        name: 'folder-secure',
+        name: `${prefix}-secure`,
         folderNames: [
           'auth',
           'authentication',
@@ -652,9 +687,9 @@ export const folderIcons: FolderTheme[] = [
           'ssl',
         ],
       },
-      { name: 'folder-custom', folderNames: ['custom', 'customs'] },
+      { name: `${prefix}-custom`, folderNames: ['custom', 'customs'] },
       {
-        name: 'folder-mock',
+        name: `${prefix}-mock`,
         folderNames: [
           'draft',
           'drafts',
@@ -669,14 +704,14 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-syntax',
+        name: `${prefix}-syntax`,
         folderNames: ['syntax', 'syntaxes', 'spellcheck'],
       },
-      { name: 'folder-vm', folderNames: ['vm', 'vms'] },
-      { name: 'folder-stylus', folderNames: ['stylus'] },
-      { name: 'folder-flow', folderNames: ['flow-typed'] },
+      { name: `${prefix}-vm`, folderNames: ['vm', 'vms'] },
+      { name: `${prefix}-stylus`, folderNames: ['stylus'] },
+      { name: `${prefix}-flow`, folderNames: ['flow-typed'] },
       {
-        name: 'folder-rules',
+        name: `${prefix}-rules`,
         folderNames: [
           'rule',
           'rules',
@@ -687,57 +722,57 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-review',
+        name: `${prefix}-review`,
         folderNames: ['review', 'reviews', 'revisal', 'revisals', 'reviewed'],
       },
       {
-        name: 'folder-animation',
+        name: `${prefix}-animation`,
         folderNames: ['anim', 'anims', 'animation', 'animations', 'animated'],
       },
-      { name: 'folder-guard', folderNames: ['guard', 'guards'] },
-      { name: 'folder-prisma', folderNames: ['prisma', 'prisma/schema'] },
-      { name: 'folder-pipe', folderNames: ['pipe', 'pipes'] },
-      { name: 'folder-svg', folderNames: ['svg', 'svgs'] },
+      { name: `${prefix}-guard`, folderNames: ['guard', 'guards'] },
+      { name: `${prefix}-prisma`, folderNames: ['prisma', 'prisma/schema'] },
+      { name: `${prefix}-pipe`, folderNames: ['pipe', 'pipes'] },
+      { name: `${prefix}-svg`, folderNames: ['svg', 'svgs'] },
       {
-        name: 'folder-vuex-store',
+        name: `${prefix}-vuex-store`,
         folderNames: ['store', 'stores'],
         enabledFor: [IconPack.Vuex],
       },
       {
-        name: 'folder-nuxt',
+        name: `${prefix}-nuxt`,
         folderNames: ['nuxt'],
         enabledFor: [IconPack.Vuex, IconPack.Vue],
       },
       {
-        name: 'folder-vue-directives',
+        name: `${prefix}-vue-directives`,
         folderNames: ['directives'],
         enabledFor: [IconPack.Vuex, IconPack.Vue],
       },
       {
-        name: 'folder-vue',
+        name: `${prefix}-vue`,
         folderNames: ['components'],
         enabledFor: [IconPack.Vuex, IconPack.Vue],
       },
-      { name: 'folder-terraform', folderNames: ['terraform'] },
+      { name: `${prefix}-terraform`, folderNames: ['terraform'] },
       {
-        name: 'folder-mobile',
+        name: `${prefix}-mobile`,
         folderNames: ['mobile', 'mobiles', 'portable', 'portability'],
       },
-      { name: 'folder-stencil', folderNames: ['stencil'] },
-      { name: 'folder-firebase', folderNames: ['firebase'] },
-      { name: 'folder-svelte', folderNames: ['svelte', 'svelte-kit'] },
+      { name: `${prefix}-stencil`, folderNames: ['stencil'] },
+      { name: `${prefix}-firebase`, folderNames: ['firebase'] },
+      { name: `${prefix}-svelte`, folderNames: ['svelte', 'svelte-kit'] },
       {
-        name: 'folder-update',
+        name: `${prefix}-update`,
         folderNames: ['update', 'updates', 'upgrade', 'upgrades'],
       },
-      { name: 'folder-intellij', folderNames: ['idea'], light: true },
+      { name: `${prefix}-intellij`, folderNames: ['idea'], light: true },
       {
-        name: 'folder-azure-pipelines',
+        name: `${prefix}-azure-pipelines`,
         folderNames: ['azure-pipelines', 'azure-pipelines-ci'],
       },
-      { name: 'folder-mjml', folderNames: ['mjml'] },
+      { name: `${prefix}-mjml`, folderNames: ['mjml'] },
       {
-        name: 'folder-admin',
+        name: `${prefix}-admin`,
         folderNames: [
           'admin',
           'admins',
@@ -748,12 +783,12 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-jupyter',
+        name: `${prefix}-jupyter`,
         folderNames: ['jupyter', 'notebook', 'notebooks'],
       },
-      { name: 'folder-scala', folderNames: ['scala'] },
+      { name: `${prefix}-scala`, folderNames: ['scala'] },
       {
-        name: 'folder-connection',
+        name: `${prefix}-connection`,
         folderNames: [
           'connection',
           'connections',
@@ -761,39 +796,39 @@ export const folderIcons: FolderTheme[] = [
           'integrations',
         ],
       },
-      { name: 'folder-quasar', folderNames: ['quasar'] },
-      { name: 'folder-next', folderNames: ['next'] },
-      { name: 'folder-cobol', folderNames: ['cobol'] },
-      { name: 'folder-yarn', folderNames: ['yarn'] },
-      { name: 'folder-husky', folderNames: ['husky'] },
+      { name: `${prefix}-quasar`, folderNames: ['quasar'] },
+      { name: `${prefix}-next`, folderNames: ['next'] },
+      { name: `${prefix}-cobol`, folderNames: ['cobol'] },
+      { name: `${prefix}-yarn`, folderNames: ['yarn'] },
+      { name: `${prefix}-husky`, folderNames: ['husky'] },
       {
-        name: 'folder-storybook',
+        name: `${prefix}-storybook`,
         folderNames: ['storybook', 'stories'],
       },
-      { name: 'folder-base', folderNames: ['base', 'bases'] },
+      { name: `${prefix}-base`, folderNames: ['base', 'bases'] },
       {
-        name: 'folder-cart',
+        name: `${prefix}-cart`,
         folderNames: ['cart', 'shopping-cart', 'shopping', 'shop'],
       },
       {
-        name: 'folder-home',
+        name: `${prefix}-home`,
         folderNames: ['home', 'start'],
       },
       {
-        name: 'folder-project',
+        name: `${prefix}-project`,
         folderNames: ['project', 'projects'],
       },
       {
-        name: 'folder-interface',
+        name: `${prefix}-interface`,
         folderNames: ['interface', 'interfaces'],
       },
-      { name: 'folder-netlify', folderNames: ['netlify'] },
+      { name: `${prefix}-netlify`, folderNames: ['netlify'] },
       {
-        name: 'folder-enum',
+        name: `${prefix}-enum`,
         folderNames: ['enum', 'enums'],
       },
       {
-        name: 'folder-contract',
+        name: `${prefix}-contract`,
         folderNames: [
           'pact',
           'pacts',
@@ -805,7 +840,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-helm',
+        name: `${prefix}-helm`,
         folderNames: [
           'helm',
           'helmchart',
@@ -816,84 +851,78 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-queue',
+        name: `${prefix}-queue`,
         folderNames: ['queue', 'queues', 'bull', 'mq'],
       },
       {
-        name: 'folder-vercel',
+        name: `${prefix}-vercel`,
         folderNames: ['vercel', 'now'],
       },
       {
-        name: 'folder-cypress',
+        name: `${prefix}-cypress`,
         folderNames: ['cypress'],
       },
       {
-        name: 'folder-decorators',
+        name: `${prefix}-decorators`,
         folderNames: ['decorator', 'decorators'],
       },
       {
-        name: 'folder-java',
+        name: `${prefix}-java`,
         folderNames: ['java'],
       },
       {
-        name: 'folder-resolver',
+        name: `${prefix}-resolver`,
         folderNames: ['resolver', 'resolvers'],
       },
       {
-        name: 'folder-angular',
+        name: `${prefix}-angular`,
         folderNames: ['angular'],
       },
       {
-        name: 'folder-unity',
+        name: `${prefix}-unity`,
         folderNames: ['unity'],
       },
       {
-        name: 'folder-pdf',
+        name: `${prefix}-pdf`,
         folderNames: ['pdf', 'pdfs'],
       },
       {
-        name: 'folder-proto',
+        name: `${prefix}-proto`,
         folderNames: ['protobuf', 'protobufs', 'proto', 'protos'],
       },
       {
-        name: 'folder-plastic',
+        name: `${prefix}-plastic`,
         folderNames: ['plastic'],
       },
       {
-        name: 'folder-gamemaker',
+        name: `${prefix}-gamemaker`,
         folderNames: ['gamemaker', 'gamemaker2'],
       },
       {
-        name: 'folder-mercurial',
+        name: `${prefix}-mercurial`,
         folderNames: ['hg', 'hghooks', 'hgext'],
       },
       {
-        name: 'folder-godot',
+        name: `${prefix}-godot`,
         folderNames: ['godot', 'godot-cpp'],
       },
       {
-        name: 'folder-lottie',
+        name: `${prefix}-lottie`,
         folderNames: ['lottie', 'lotties', 'lottiefiles'],
       },
       {
-        name: 'folder-taskfile',
+        name: `${prefix}-taskfile`,
         folderNames: ['taskfile', 'taskfiles'],
       },
       {
-        name: 'folder-cloudflare',
+        name: `${prefix}-cloudflare`,
         folderNames: ['cloudflare'],
       },
       {
-        name: 'folder-seeders',
+        name: `${prefix}-seeders`,
         folderNames: ['seeds', 'seeders', 'seed', 'seeding'],
       },
-      { name: 'folder-bicep', folderNames: ['bicep'] },
+      { name: `${prefix}-bicep`, folderNames: ['bicep'] },
     ],
-  },
-  {
-    name: 'classic',
-    defaultIcon: { name: 'folder' },
-    rootFolder: { name: 'folder-root' },
-  },
-  { name: 'none', defaultIcon: { name: '' } },
-];
+  };
+}

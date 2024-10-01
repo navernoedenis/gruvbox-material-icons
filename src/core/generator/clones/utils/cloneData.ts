@@ -142,10 +142,15 @@ const getFolderIconBaseData = (
   manifest: Manifest
 ): IconData[] | undefined => {
   const icons = [];
+
+  const isFolderIcon =
+    clone.base.startsWith('folder-') ||
+    clone.base.startsWith('colorful-folder-');
+
   const folderBase =
     clone.base === 'folder'
       ? 'folder'
-      : clone.base.startsWith('folder-')
+      : isFolderIcon
         ? clone.base
         : `folder-${clone.base}`;
 

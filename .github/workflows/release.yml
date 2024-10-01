@@ -48,7 +48,7 @@ jobs:
 
       - name: Install dependencies 📦
         run: |
-          bun install --frozen-lockfile
+          bun install
           bun add -g npm
 
       - name: Update version ↗

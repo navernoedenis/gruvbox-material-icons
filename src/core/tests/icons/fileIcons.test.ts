@@ -263,8 +263,8 @@ describe('file icons', () => {
           light: true,
           clone: {
             base: 'foo',
-            color: 'green-500',
-            lightColor: 'green-100',
+            color: 'green',
+            lightColor: 'green',
           },
         },
       ],
@@ -324,8 +324,8 @@ describe('file icons', () => {
           fileExtensions: ['bar'],
           clone: {
             base: 'foo',
-            color: 'green-500',
-            lightColor: 'green-100',
+            color: 'green',
+            lightColor: 'green',
           },
         },
       ],

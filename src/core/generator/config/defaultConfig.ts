@@ -8,7 +8,7 @@ import type { RecursivePartial } from '../../types/recursivePartial';
 export const getDefaultConfig = (): Required<Config> => ({
   folders: {
     theme: 'specific',
-    color: '#90a4ae',
+    color: '#45403d',
     associations: {},
     customClones: [],
   },
@@ -17,7 +17,7 @@ export const getDefaultConfig = (): Required<Config> => ({
   opacity: 1,
   saturation: 1,
   files: {
-    color: '#90a4ae',
+    color: '#45403d',
     associations: {},
     customClones: [],
   },

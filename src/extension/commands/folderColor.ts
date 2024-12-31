@@ -13,13 +13,26 @@ type FolderColor = {
 };
 
 const iconPalette: FolderColor[] = [
-  { label: 'Grey (Default)', hex: '#90a4ae' },
-  { label: 'Blue', hex: '#42a5f5' },
-  { label: 'Green', hex: '#7CB342' },
-  { label: 'Teal', hex: '#26A69A' },
-  { label: 'Red', hex: '#EF5350' },
-  { label: 'Orange', hex: '#FF7043' },
-  { label: 'Yellow', hex: '#FDD835' },
+  { label: 'Default', hex: '#45403d' },
+
+  { label: 'Black', hex: '#665c54' },
+  { label: 'Blue', hex: '#7daea3' },
+  { label: 'Cyan', hex: '#89b482' },
+  { label: 'Green', hex: '#a9b665' },
+  { label: 'Orange', hex: '#e78a4e' },
+  { label: 'Pink', hex: '#d3869b' },
+  { label: 'Red', hex: '#ea6962' },
+  { label: 'White', hex: '#ebdbb2' },
+  { label: 'Yellow', hex: '#e3ae5a' },
+
+  { label: 'Dim Blue', hex: '#68948a' },
+  { label: 'Dim Cyan', hex: '#72966c' },
+  { label: 'Dim Green', hex: '#8f9a52' },
+  { label: 'Dim Orange', hex: '#bd6f3e' },
+  { label: 'Dim Pink', hex: '#ab6c7d' },
+  { label: 'Dim Red', hex: '#b85651' },
+  { label: 'Dim Yellow', hex: '#c18f41' },
+
   { label: 'Custom Color', hex: 'Custom HEX Code' },
 ];
 

@@ -372,8 +372,8 @@ The following example demonstrates how the shapes of the `rust` file icon can be
   light: true, // needed if a `lightColor` is provided
   clone: {
     base: 'rust',
-    color: 'green-400',
-    lightColor: 'green-700', // optional
+    color: 'green',
+    lightColor: 'green', // optional
   },
 },
 ```

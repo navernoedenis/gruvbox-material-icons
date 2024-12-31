@@ -807,7 +807,7 @@ export const fileIcons: FileIcons = {
       fileExtensions: ['mist.js', 'mist.ts', 'mist.jsx', 'mist.tsx'],
       clone: {
         base: 'liquid',
-        color: 'blue-500',
+        color: 'blue',
       },
     },
     { name: 'otne', fileExtensions: ['otne'] },
@@ -974,7 +974,7 @@ export const fileIcons: FileIcons = {
       name: 'angular-component',
       clone: {
         base: 'angular',
-        color: 'blue-700',
+        color: 'blue',
       },
       fileExtensions: ['component.ts', 'component.js'],
       enabledFor: [IconPack.Angular, IconPack.Ngrx],
@@ -983,7 +983,7 @@ export const fileIcons: FileIcons = {
       name: 'angular-guard',
       clone: {
         base: 'angular',
-        color: 'green-600',
+        color: 'green',
       },
       fileExtensions: ['guard.ts', 'guard.js'],
       enabledFor: [IconPack.Angular, IconPack.Ngrx],
@@ -992,7 +992,7 @@ export const fileIcons: FileIcons = {
       name: 'angular-service',
       clone: {
         base: 'angular',
-        color: 'amber-400',
+        color: 'orange',
       },
       fileExtensions: ['service.ts', 'service.js'],
       enabledFor: [IconPack.Angular, IconPack.Ngrx],
@@ -1001,7 +1001,7 @@ export const fileIcons: FileIcons = {
       name: 'angular-pipe',
       clone: {
         base: 'angular',
-        color: 'teal-600',
+        color: 'cyan',
       },
       fileExtensions: ['pipe.ts', 'pipe.js', 'filter.js'],
       enabledFor: [IconPack.Angular, IconPack.Ngrx],
@@ -1010,7 +1010,7 @@ export const fileIcons: FileIcons = {
       name: 'angular-directive',
       clone: {
         base: 'angular',
-        color: 'purple-400',
+        color: 'pink',
       },
       fileExtensions: ['directive.ts', 'directive.js'],
       enabledFor: [IconPack.Angular, IconPack.Ngrx],
@@ -1019,7 +1019,7 @@ export const fileIcons: FileIcons = {
       name: 'angular-resolver',
       clone: {
         base: 'angular',
-        color: 'green-600',
+        color: 'yellow',
       },
       fileExtensions: ['resolver.ts', 'resolver.js'],
       enabledFor: [IconPack.Angular, IconPack.Ngrx],
@@ -1028,7 +1028,7 @@ export const fileIcons: FileIcons = {
       name: 'angular-interceptor',
       clone: {
         base: 'angular',
-        color: 'orange-500',
+        color: 'orange',
       },
       fileExtensions: ['interceptor.ts', 'interceptor.js'],
       enabledFor: [IconPack.Angular, IconPack.Ngrx],
@@ -1844,7 +1844,7 @@ export const fileIcons: FileIcons = {
       fileExtensions: ['svelte.js'],
       clone: {
         base: 'svelte',
-        color: 'amber-400',
+        color: 'yellow',
       },
     },
     {
@@ -1852,7 +1852,7 @@ export const fileIcons: FileIcons = {
       fileExtensions: ['svelte.ts'],
       clone: {
         base: 'svelte',
-        color: 'light-blue-700',
+        color: 'blue',
       },
     },
     {
@@ -1872,7 +1872,7 @@ export const fileIcons: FileIcons = {
       name: 'nest-controller',
       clone: {
         base: 'nest',
-        color: 'light-blue-700',
+        color: 'blue',
       },
       fileExtensions: ['controller.ts', 'controller.js'],
       enabledFor: [IconPack.Nest],
@@ -1881,7 +1881,7 @@ export const fileIcons: FileIcons = {
       name: 'nest-middleware',
       clone: {
         base: 'nest',
-        color: 'indigo-400',
+        color: 'pink',
       },
       fileExtensions: ['middleware.ts', 'middleware.js'],
       enabledFor: [IconPack.Nest],
@@ -1890,7 +1890,7 @@ export const fileIcons: FileIcons = {
       name: 'nest-module',
       clone: {
         base: 'nest',
-        color: 'red-600',
+        color: 'red',
       },
       fileExtensions: ['module.ts', 'module.js'],
       enabledFor: [IconPack.Nest],
@@ -1899,7 +1899,7 @@ export const fileIcons: FileIcons = {
       name: 'nest-service',
       clone: {
         base: 'nest',
-        color: 'amber-400',
+        color: 'orange',
       },
       fileExtensions: ['service.ts', 'service.js'],
       enabledFor: [IconPack.Nest],
@@ -1908,7 +1908,7 @@ export const fileIcons: FileIcons = {
       name: 'nest-decorator',
       clone: {
         base: 'nest',
-        color: 'purple-400',
+        color: 'pink',
       },
       fileExtensions: ['decorator.ts', 'decorator.js'],
       enabledFor: [IconPack.Nest],
@@ -1917,7 +1917,7 @@ export const fileIcons: FileIcons = {
       name: 'nest-pipe',
       clone: {
         base: 'nest',
-        color: 'teal-600',
+        color: 'cyan',
       },
       fileExtensions: ['pipe.ts', 'pipe.js'],
       enabledFor: [IconPack.Nest],
@@ -1926,7 +1926,7 @@ export const fileIcons: FileIcons = {
       name: 'nest-filter',
       clone: {
         base: 'nest',
-        color: 'deep-orange-400',
+        color: 'orange',
       },
       fileExtensions: ['filter.ts', 'filter.js'],
       enabledFor: [IconPack.Nest],
@@ -1935,7 +1935,7 @@ export const fileIcons: FileIcons = {
       name: 'nest-gateway',
       clone: {
         base: 'nest',
-        color: 'lime-700',
+        color: 'yellow',
       },
       fileExtensions: ['gateway.ts', 'gateway.js'],
       enabledFor: [IconPack.Nest],
@@ -1944,7 +1944,7 @@ export const fileIcons: FileIcons = {
       name: 'nest-guard',
       clone: {
         base: 'nest',
-        color: 'green-600',
+        color: 'green',
       },
       fileExtensions: ['guard.ts', 'guard.js'],
       enabledFor: [IconPack.Nest],
@@ -1953,7 +1953,7 @@ export const fileIcons: FileIcons = {
       name: 'nest-resolver',
       clone: {
         base: 'nest',
-        color: 'pink-400',
+        color: 'pink',
       },
       fileExtensions: ['resolver.ts', 'resolver.js'],
       enabledFor: [IconPack.Nest],
@@ -1962,7 +1962,7 @@ export const fileIcons: FileIcons = {
       name: 'nest-interceptor',
       clone: {
         base: 'nest',
-        color: 'orange-500',
+        color: 'orange',
       },
       fileExtensions: ['interceptor.ts', 'interceptor.js'],
       enabledFor: [IconPack.Nest],
@@ -1977,7 +1977,7 @@ export const fileIcons: FileIcons = {
       name: 'advpl-ptm',
       clone: {
         base: 'advpl',
-        color: 'red-400',
+        color: 'red',
       },
       fileExtensions: ['ptm'],
     },
@@ -1985,7 +1985,7 @@ export const fileIcons: FileIcons = {
       name: 'advpl-tlpp',
       clone: {
         base: 'advpl',
-        color: 'yellow-700',
+        color: 'yellow',
       },
       fileExtensions: ['tlpp'],
     },
@@ -1993,7 +1993,7 @@ export const fileIcons: FileIcons = {
       name: 'advpl-include',
       clone: {
         base: 'advpl',
-        color: 'cyan-500',
+        color: 'cyan',
       },
       fileExtensions: ['ch'],
     },
@@ -2690,7 +2690,7 @@ export const fileIcons: FileIcons = {
       name: 'container',
       clone: {
         base: '3d',
-        color: '#00b0ff',
+        color: 'blue',
       },
       fileNames: [
         '.devcontainer/devcontainer.json',
@@ -2757,7 +2757,7 @@ export const fileIcons: FileIcons = {
     {
       name: 'tape',
       fileExtensions: ['tape'],
-      clone: { base: 'video', color: 'purple-300' },
+      clone: { base: 'video', color: 'pink' },
     },
     {
       name: 'hurl',

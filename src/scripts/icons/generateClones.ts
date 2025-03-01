@@ -13,7 +13,7 @@ import { yellow } from '../helpers/painter';
  * This file is meant to be executed exclusively by npm scripts.
  */
 try {
-  console.log('> Material Icon Theme:', yellow('Generating icon clones...'));
+  console.log('> Gruvbox Material Icons:', yellow('Generating icon clones...'));
   const manifest = generateManifest();
   generateConfiguredFileIconClones(fileIcons, manifest);
   generateConfiguredFolderIconClones(folderIcons, manifest);

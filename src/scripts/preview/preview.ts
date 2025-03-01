@@ -78,7 +78,7 @@ const savePreview = async (
   createScreenshot(filePath, fileName)
     .then(() => {
       console.log(
-        '> Material Icon Theme:',
+        '> Gruvbox Material Icons:',
         green(`Successfully created ${fileName} preview image!`)
       );
     })

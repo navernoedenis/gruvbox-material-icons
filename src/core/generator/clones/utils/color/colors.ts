@@ -1,10 +1,7 @@
-import chroma, { type Color } from 'chroma-js';
+import chroma from 'chroma-js';
 import { type INode } from 'svgson';
 import { getStyle, traverse } from '../cloning';
-import {
-  closerMaterialColorTo,
-  getMaterialColorByKey,
-} from './materialPalette';
+import { getMaterialColorByKey } from './materialPalette';
 
 /** Get all the colors used in the SVG node as a `Set` list. **/
 export const getColorList = (node: INode) => {
@@ -64,8 +61,8 @@ export const orderDarkToLight = (colors: Set<string>) => {
 };
 
 /** Lightens a color by a given percentage. **/
-const lighten = (color: Color, hslPercent: number) =>
-  color.set('hsl.l', color.get('hsl.l') + hslPercent);
+// const lighten = (color: Color, hslPercent: number) =>
+//   color.set('hsl.l', color.get('hsl.l') + hslPercent);
 
 /** checks if a string is a valid color. **/
 export const isValidColor = (color?: string): boolean => {
@@ -91,39 +88,38 @@ export const replacementMap = (baseColor: string, colors: Set<string>) => {
     if (matCol === undefined) {
       throw new Error(`Invalid color: ${baseColor}`);
     }
-
-    baseColor = matCol;
+    baseColor = 'default';
   }
 
   const orderedColors = orderDarkToLight(colors);
-  const baseColorChroma = chroma(baseColor);
-  const baseHue = baseColorChroma.get('hsl.h');
+  // const baseColorChroma = chroma(baseColor);
+  // const baseHue = baseColorChroma.get('hsl.h');
   const replacement = new Map<string, string>();
   replacement.set(orderedColors[0], baseColor);
 
   // keep track of the latest color to determine if the next color
   // should be lightened or not.
-  let latestColor = baseColorChroma;
+  // let latestColor = baseColorChroma;
 
-  for (let i = 1; i < orderedColors.length; i++) {
-    const color = chroma(orderedColors[i]);
-    let newColor = color.set('hsl.h', baseHue);
+  // for (let i = 1; i < orderedColors.length; i++) {
+  //   const color = chroma(orderedColors[i]);
+  //   let newColor = color.set('hsl.h', baseHue);
 
-    // the idea is to keep the paths with the same relative darkness
-    // as the original icon, but with different hues. So if the
-    // new color results in a darker color (as we are looping from
-    // dark to light), we set the lightness to the latest color and
-    // then lighten it a bit so that it's brighter than the latest one.
-    if (newColor.luminance() < latestColor.luminance()) {
-      newColor = newColor.set('hsl.l', latestColor.get('hsl.l'));
-      newColor = lighten(newColor, 0.1);
-    }
+  //   the idea is to keep the paths with the same relative darkness
+  //   as the original icon, but with different hues. So if the
+  //   new color results in a darker color (as we are looping from
+  //   dark to light), we set the lightness to the latest color and
+  //   then lighten it a bit so that it's brighter than the latest one.
+  //   if (newColor.luminance() < latestColor.luminance()) {
+  //     newColor = newColor.set('hsl.l', latestColor.get('hsl.l'));
+  //     newColor = lighten(newColor, 0.1);
+  //   }
 
-    const matCol = closerMaterialColorTo(newColor.hex());
-    latestColor = chroma(matCol);
+  //   const matCol = closerMaterialColorTo(newColor.hex());
+  //   latestColor = chroma(matCol);
 
-    replacement.set(orderedColors[i], matCol);
-  }
+  //   replacement.set(orderedColors[i], matCol);
+  // }
 
   return replacement;
 };

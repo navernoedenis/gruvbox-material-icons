@@ -612,7 +612,7 @@ describe('folder icons', () => {
             light: true,
             clone: {
               base: 'foo',
-              color: 'green-500',
+              color: 'green',
               lightColor: 'green-100',
             },
           },
@@ -747,7 +747,7 @@ describe('folder icons', () => {
             folderNames: ['bar'],
             clone: {
               base: 'foo',
-              color: 'green-500',
+              color: 'green',
             },
           },
         ],

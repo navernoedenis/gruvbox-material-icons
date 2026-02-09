@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { type INode, parse, stringify } from 'svgson';
 import { createEmptyManifest } from '../../../models/manifest';
 import { getColorList, replacementMap } from './color/colors';
+import { materialPalette } from './color/materialPalette';
 
 /**
  * Recursively walks through an SVG node tree and its children,
@@ -56,7 +57,9 @@ export const cloneIcon = async (
 ): Promise<string> => {
   const baseContent = await readIcon(path, hash);
   const svg = await parse(baseContent);
-  const replacements = replacementMap(color, getColorList(svg));
+  const isFolder = path.includes('folder-');
+
+  const replacements = replacementMap(color, getColorList(svg), isFolder);
   replaceColors(svg, replacements);
   return stringify(svg);
 };
@@ -115,6 +118,7 @@ export const replaceColors = (
   traverse(node, (node) => {
     // replace colors in style attribute
     const style = getStyle(node);
+
     if (style) {
       if (style.fill && replacements.has(style.fill)) {
         style.fill = replacements.get(style.fill)!;
@@ -130,11 +134,15 @@ export const replaceColors = (
     // replace colors in attributes
     if (node.attributes) {
       if (node.attributes.fill && replacements.has(node.attributes.fill)) {
-        node.attributes.fill = replacements.get(node.attributes.fill)!;
+        const colorName = replacements.get(node.attributes.fill)!;
+        node.attributes.fill =
+          materialPalette[colorName as keyof typeof materialPalette];
       }
 
       if (node.attributes.stroke && replacements.has(node.attributes.stroke)) {
-        node.attributes.stroke = replacements.get(node.attributes.stroke)!;
+        const colorName = replacements.get(node.attributes.fill)!;
+        node.attributes.stroke =
+          materialPalette[colorName as keyof typeof materialPalette];
       }
 
       if (

@@ -1,5 +1,5 @@
 {
-  "name": "vscode-material-icon-theme",
+  "name": "vscode-gruvbox-material-icons",
 
   // Use Microsoft's Ubuntu Base image for the dev container
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",

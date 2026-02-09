@@ -1,8 +1,8 @@
 {
-  "name": "material-icon-theme",
-  "displayName": "Material Icon Theme",
-  "description": "Material Design Icons for Visual Studio Code",
-  "version": "5.31.0",
+  "name": "gruvbox-material-icons",
+  "displayName": "Gruvbox Material Icons",
+  "description": "Gruvbox Material Icons for Visual Studio Code",
+  "version": "4.4.0",
   "license": "MIT",
   "scripts": {
     "precompile": "rimraf dist && bun run verify",
@@ -23,29 +23,21 @@
     "preview": "bun ./src/scripts/preview/run.ts",
     "svgo": "svgo -i icons -o icons -q",
     "test": "bun test",
-    "vscode:prepublish": "bun run lint && bun run build",
+    "vsce:prebuild": "bun run lint && bun run build",
+    "vsce:build": "bun run format && bun vsce package",
     "verify": "sheriff verify",
     "prepublishOnly": "bun ./src/scripts/module/prepare.ts",
     "postpublish": "git checkout package.json && git checkout README.md",
     "prepare": "husky"
   },
-  "publisher": "PKief",
-  "author": {
-    "name": "Material Extensions",
-    "email": "material-icons-extensions@googlegroups.com",
-    "url": "https://github.com/material-extensions"
-  },
-  "funding": "https://github.com/sponsors/material-extensions",
-  "sponsor": {
-    "url": "https://github.com/sponsors/material-extensions"
-  },
+  "publisher": "navernoedenis",
   "engines": {
     "vscode": "^1.55.0"
   },
-  "homepage": "https://github.com/material-extensions/vscode-material-icon-theme/blob/main/README.md",
+  "homepage": "https://github.com/navernoedenis/gruvbox-material-icon",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/material-extensions/vscode-material-icon-theme.git"
+    "url": "git+https://github.com/navernoedenis/gruvbox-material-icons.git"
   },
   "bugs": {
     "url": "https://github.com/material-extensions/vscode-material-icon-theme/issues"
@@ -63,7 +55,8 @@
     "theme",
     "material",
     "icon-theme",
-    "customization"
+    "customization",
+    "gruvbox"
   ],
   "extensionKind": [
     "ui",
@@ -86,65 +79,65 @@
   "contributes": {
     "iconThemes": [
       {
-        "id": "material-icon-theme",
-        "label": "Material Icon Theme",
+        "id": "gruvbox-material-icons",
+        "label": "Gruvbox Material Icons",
         "path": "./dist/material-icons.json",
         "_watch": true
       }
     ],
     "commands": [
       {
-        "command": "material-icon-theme.activateIcons",
+        "command": "gruvbox-material-icons.activateIcons",
         "title": "%command.activateIcons%",
         "enablement": "!isWeb"
       },
       {
-        "command": "material-icon-theme.toggleIconPacks",
+        "command": "gruvbox-material-icons.toggleIconPacks",
         "title": "%command.toggleIconPacks%",
         "enablement": "!isWeb"
       },
       {
-        "command": "material-icon-theme.changeFolderTheme",
+        "command": "gruvbox-material-icons.changeFolderTheme",
         "title": "%command.changeFolderTheme%",
         "enablement": "!isWeb"
       },
       {
-        "command": "material-icon-theme.changeFolderColor",
+        "command": "gruvbox-material-icons.changeFolderColor",
         "title": "%command.changeFolderColor%",
         "enablement": "!isWeb"
       },
       {
-        "command": "material-icon-theme.changeRootFolderColor",
+        "command": "gruvbox-material-icons.changeRootFolderColor",
         "title": "%command.changeRootFolderColor%",
         "enablement": "!isWeb"
       },
       {
-        "command": "material-icon-theme.changeFileColor",
+        "command": "gruvbox-material-icons.changeFileColor",
         "title": "%command.changeFileColor%",
         "enablement": "!isWeb"
       },
       {
-        "command": "material-icon-theme.restoreDefaultConfig",
+        "command": "gruvbox-material-icons.restoreDefaultConfig",
         "title": "%command.restoreDefaultConfig%",
         "enablement": "!isWeb"
       },
       {
-        "command": "material-icon-theme.toggleExplorerArrows",
+        "command": "gruvbox-material-icons.toggleExplorerArrows",
         "title": "%command.toggleExplorerArrows%",
         "enablement": "!isWeb"
       },
       {
-        "command": "material-icon-theme.changeOpacity",
+        "command": "gruvbox-material-icons.changeOpacity",
         "title": "%command.changeOpacity%",
         "enablement": "!isWeb"
       },
       {
-        "command": "material-icon-theme.toggleGrayscale",
+        "command": "gruvbox-material-icons.toggleGrayscale",
         "title": "%command.toggleGrayscale%",
         "enablement": "!isWeb"
       },
       {
-        "command": "material-icon-theme.changeSaturation",
+        "command": "gruvbox-material-icons.changeSaturation",
         "title": "%command.changeSaturation%",
         "enablement": "!isWeb"
       }
@@ -153,7 +146,7 @@
       "type": "object",
       "title": "%configuration.title%",
       "properties": {
-        "material-icon-theme.activeIconPack": {
+        "gruvbox-material-icons.activeIconPack": {
           "type": "string",
           "default": "angular",
           "description": "%configuration.activeIconPack%",
@@ -184,27 +177,27 @@
             "none"
           ]
         },
-        "material-icon-theme.files.associations": {
+        "gruvbox-material-icons.files.associations": {
           "type": "object",
           "default": {},
           "description": "%configuration.files.associations%"
         },
-        "material-icon-theme.folders.associations": {
+        "gruvbox-material-icons.folders.associations": {
           "type": "object",
           "default": {},
           "description": "%configuration.folders.associations%"
         },
-        "material-icon-theme.rootFolders.associations": {
+        "gruvbox-material-icons.rootFolders.associations": {
           "type": "object",
           "default": {},
           "description": "%configuration.rootFolders.associations%"
         },
-        "material-icon-theme.languages.associations": {
+        "gruvbox-material-icons.languages.associations": {
           "type": "object",
           "default": {},
           "description": "%configuration.languages.associations%"
         },
-        "material-icon-theme.files.customClones": {
+        "gruvbox-material-icons.files.customClones": {
           "type": "array",
           "default": [],
           "items": {
@@ -281,7 +274,7 @@
           },
           "description": "%configuration.customClones%"
         },
-        "material-icon-theme.languages.customClones": {
+        "gruvbox-material-icons.languages.customClones": {
           "type": "array",
           "default": [],
           "items": {
@@ -350,7 +343,7 @@
           },
           "description": "%configuration.customClones%"
         },
-        "material-icon-theme.folders.customClones": {
+        "gruvbox-material-icons.folders.customClones": {
           "type": "array",
           "default": [],
           "items": {
@@ -390,64 +383,66 @@
           },
           "description": "%configuration.customClones%"
         },
-        "material-icon-theme.folders.theme": {
+        "gruvbox-material-icons.folders.theme": {
           "type": "string",
           "default": "specific",
           "description": "%configuration.folders.theme%",
           "enumDescriptions": [
             "%configuration.folders.theme.specific%",
+            "%configuration.folders.theme.colorful%",
             "%configuration.folders.theme.classic%",
             "%configuration.folders.theme.none%"
           ],
           "enum": [
             "specific",
+            "colorful",
             "classic",
             "none"
           ]
         },
-        "material-icon-theme.folders.color": {
+        "gruvbox-material-icons.folders.color": {
           "type": "string",
-          "default": "#90a4ae",
+          "default": "#45403d",
           "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
           "description": "%configuration.folders.color%"
         },
-        "material-icon-theme.rootFolders.color": {
+        "gruvbox-material-icons.rootFolders.color": {
           "type": "string",
           "default": "#90a4ae",
           "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
           "description": "%configuration.rootFolders.color%"
         },
-        "material-icon-theme.files.color": {
+        "gruvbox-material-icons.files.color": {
           "type": "string",
-          "default": "#90a4ae",
+          "default": "#45403d",
           "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
           "description": "%configuration.files.color%"
         },
-        "material-icon-theme.opacity": {
+        "gruvbox-material-icons.opacity": {
           "type": "number",
           "default": 1,
           "minimum": 0,
           "maximum": 1,
           "description": "%configuration.opacity%"
         },
-        "material-icon-theme.hidesExplorerArrows": {
+        "gruvbox-material-icons.hidesExplorerArrows": {
           "type": "boolean",
           "default": false,
           "description": "%configuration.hidesExplorerArrows%"
         },
-        "material-icon-theme.saturation": {
+        "gruvbox-material-icons.saturation": {
           "type": "number",
           "default": 1,
           "minimum": 0,
           "maximum": 1,
           "description": "%configuration.saturation%"
         },
-        "material-icon-theme.enableLogging": {
+        "gruvbox-material-icons.enableLogging": {
           "type": "boolean",
           "default": false,
           "description": "%configuration.enableLogging%"
         },
-        "material-icon-theme.logLevel": {
+        "gruvbox-material-icons.logLevel": {
           "type": "string",
           "default": "info",
           "enum": [
@@ -473,6 +468,7 @@
     "@types/chroma-js": "^3.1.1",
     "@types/puppeteer": "^7.0.4",
     "@types/vscode": "~1.55.0",
+    "@vscode/vsce": "^3.7.1",
     "axios": "^1.11.0",
     "bun-types": "^1.2.20",
     "changelogen": "0.6.2",

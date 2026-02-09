@@ -123,7 +123,7 @@ const handleErrors = () => {
       ...Object.keys(allConflicts.languageIcons),
     ].length > 0
   ) {
-    console.log('> Material Icon Theme:', red('Icon conflicts:'));
+    console.log('> Gruvbox Material Icons:', red('Icon conflicts:'));
     console.log(red('--------------------------------------'));
 
     printErrorMessage(allConflicts.fileIcons.fileExtensions, 'fileExtension');
@@ -135,7 +135,7 @@ const handleErrors = () => {
     process.exit(1);
   } else {
     console.log(
-      '> Material Icon Theme:',
+      '> Gruvbox Material Icons:',
       green('Passed icon conflict checks!')
     );
   }

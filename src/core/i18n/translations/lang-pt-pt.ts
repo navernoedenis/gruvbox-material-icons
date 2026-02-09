@@ -2,7 +2,7 @@ import type { Translation } from '../../models/i18n/translation';
 
 export const translation: Translation = {
   activate: 'Habilitar',
-  activated: 'O Material Icon Theme está habilitado.',
+  activated: 'O Gruvbox Material Icons está habilitado.',
   iconPacks: {
     selectPack: 'Seleccione um pacote de ícones',
     description: "Seleccionar o pacote de ícones '%0'",

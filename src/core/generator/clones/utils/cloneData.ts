@@ -173,7 +173,7 @@ const getFolderIconBaseData = (
   const folderBase =
     clone.base === 'folder'
       ? 'folder'
-      : clone.base.startsWith('folder-')
+      : clone.base.startsWith('folder-') || clone.base.startsWith('colorful-')
         ? clone.base
         : `folder-${clone.base}`;
 
@@ -274,7 +274,8 @@ const getIconName = (baseName: string, data: IconData): string => {
     prefix =
       baseName === 'folder'
         ? ''
-        : baseName.startsWith('folder-')
+        : baseName.startsWith('folder-') ||
+            baseName.startsWith('colorful-folder-')
           ? ''
           : 'folder-';
 

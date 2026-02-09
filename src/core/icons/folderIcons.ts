@@ -1,26 +1,55 @@
 import type { FolderTheme } from '../models/icons/folders/folderTheme';
+import type { FolderType } from '../models/icons/folders/folderType';
 import { IconPack } from '../models/icons/iconPack';
 
 /**
  * Defines folder icons
  */
 export const folderIcons: FolderTheme[] = [
+  getFolderIcons('specific'),
+  getFolderIcons('colorful'),
   {
-    name: 'specific',
+    name: 'classic',
+    defaultIcon: { name: 'folder' },
+    rootFolder: { name: 'folder-root' },
+  },
+  { name: 'none', defaultIcon: { name: '' } },
+];
+
+function getFolderIcons(type: FolderType): FolderTheme {
+  let prefix = `${type}-folder`;
+
+  if (type === 'specific') {
+    prefix = 'folder';
+  }
+
+  function createBase(name: string) {
+    return `${prefix}-${name}`;
+  }
+
+  function createCloneColor(color: string) {
+    let base = '';
+    if (type === 'specific') base = `${color}Base`;
+    if (type === 'colorful') base = `${color}Dim`;
+    return base;
+  }
+
+  return {
+    name: type,
     defaultIcon: { name: 'folder' },
     rootFolder: { name: 'folder-root' },
     icons: [
-      { name: 'folder-rust', folderNames: ['rust'] },
+      { name: createBase('rust'), folderNames: ['rust'] },
       {
-        name: 'folder-robot',
+        name: createBase('robot'),
         folderNames: ['bot', 'bots', 'robot', 'robots', 'agent', 'agents'],
       },
       {
-        name: 'folder-src',
+        name: createBase('src'),
         folderNames: ['src', 'srcs', 'source', 'sources', 'code'],
       },
       {
-        name: 'folder-dist',
+        name: createBase('dist'),
         folderNames: [
           'dist',
           'out',
@@ -36,14 +65,14 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-css',
+        name: createBase('css'),
         folderNames: ['css', 'stylesheet', 'stylesheets', 'style', 'styles'],
       },
-      { name: 'folder-sass', folderNames: ['sass', 'scss'] },
-      { name: 'folder-television', folderNames: ['tv', 'television'] },
-      { name: 'folder-desktop', folderNames: ['desktop', 'display'] },
+      { name: createBase('sass'), folderNames: ['sass', 'scss'] },
+      { name: createBase('television'), folderNames: ['tv', 'television'] },
+      { name: createBase('desktop'), folderNames: ['desktop', 'display'] },
       {
-        name: 'folder-console',
+        name: createBase('console'),
         folderNames: [
           'console',
           'xbox',
@@ -55,7 +84,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-images',
+        name: createBase('images'),
         folderNames: [
           'images',
           'image',
@@ -86,25 +115,28 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-scripts',
+        name: createBase('scripts'),
         folderNames: ['script', 'scripts', 'scripting'],
       },
       {
-        name: 'folder-node',
+        name: createBase('node'),
         folderNames: ['node', 'nodejs', 'node_modules'],
       },
       {
-        name: 'folder-javascript',
+        name: createBase('javascript'),
         folderNames: ['js', 'javascript', 'javascripts', 'cjs', 'mjs'],
       },
-      { name: 'folder-json', folderNames: ['json', 'jsons', 'jsonc', 'jsonl'] },
       {
-        name: 'folder-font',
+        name: createBase('json'),
+        folderNames: ['json', 'jsons', 'jsonc', 'jsonl'],
+      },
+      {
+        name: createBase('font'),
         folderNames: ['font', 'fonts', 'typeface', 'typefaces'],
       },
-      { name: 'folder-bower', folderNames: ['bower_components'] },
+      { name: createBase('bower'), folderNames: ['bower_components'] },
       {
-        name: 'folder-test',
+        name: createBase('test'),
         folderNames: [
           'test',
           'tests',
@@ -116,21 +148,21 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-directive',
+        name: createBase('directive'),
         folderNames: ['directive', 'directives'],
       },
       {
-        name: 'folder-jinja',
+        name: createBase('jinja'),
         folderNames: ['jinja', 'jinja2', 'j2'],
         light: true,
       },
-      { name: 'folder-markdown', folderNames: ['markdown', 'md'] },
-      { name: 'folder-pdm', folderNames: ['pdm-plugins', 'pdm-build'] },
-      { name: 'folder-php', folderNames: ['php'] },
-      { name: 'folder-phpmailer', folderNames: ['phpmailer'] },
-      { name: 'folder-sublime', folderNames: ['sublime'] },
+      { name: createBase('markdown'), folderNames: ['markdown', 'md'] },
+      { name: createBase('pdm'), folderNames: ['pdm-plugins', 'pdm-build'] },
+      { name: createBase('php'), folderNames: ['php'] },
+      { name: createBase('phpmailer'), folderNames: ['phpmailer'] },
+      { name: createBase('sublime'), folderNames: ['sublime'] },
       {
-        name: 'folder-docs',
+        name: createBase('docs'),
         folderNames: [
           'doc',
           'docs',
@@ -150,18 +182,18 @@ export const folderIcons: FolderTheme[] = [
           'notes',
         ],
       },
-      { name: 'folder-gh-workflows', folderNames: ['github/workflows'] },
+      { name: createBase('gh-workflows'), folderNames: ['github/workflows'] },
       {
-        name: 'folder-git',
+        name: createBase('git'),
         folderNames: ['git', 'patches', 'githooks', 'submodules'],
       },
-      { name: 'folder-github', folderNames: ['github'] },
-      { name: 'folder-gitea', folderNames: ['gitea'] },
-      { name: 'folder-gitlab', folderNames: ['gitlab'] },
-      { name: 'folder-forgejo', folderNames: ['forgejo'] },
-      { name: 'folder-vscode', folderNames: ['vscode', 'vscode-test'] },
+      { name: createBase('github'), folderNames: ['github'] },
+      { name: createBase('gitea'), folderNames: ['gitea'] },
+      { name: createBase('gitlab'), folderNames: ['gitlab'] },
+      { name: createBase('forgejo'), folderNames: ['forgejo'] },
+      { name: createBase('vscode'), folderNames: ['vscode', 'vscode-test'] },
       {
-        name: 'folder-views',
+        name: createBase('views'),
         folderNames: [
           'view',
           'views',
@@ -173,11 +205,11 @@ export const folderIcons: FolderTheme[] = [
           'html',
         ],
       },
-      { name: 'folder-vue', folderNames: ['vue'] },
-      { name: 'folder-vuepress', folderNames: ['vuepress'] },
-      { name: 'folder-expo', folderNames: ['expo', 'expo-shared'] },
+      { name: createBase('vue'), folderNames: ['vue'] },
+      { name: createBase('vuepress'), folderNames: ['vuepress'] },
+      { name: createBase('expo'), folderNames: ['expo', 'expo-shared'] },
       {
-        name: 'folder-config',
+        name: createBase('config'),
         folderNames: [
           'cfg',
           'cfgs',
@@ -201,7 +233,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-i18n',
+        name: createBase('i18n'),
         folderNames: [
           'i18n',
           'internationalization',
@@ -220,16 +252,16 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-components',
+        name: createBase('components'),
         folderNames: ['components', 'widget', 'widgets', 'fragments'],
       },
       {
-        name: 'folder-verdaccio',
+        name: createBase('verdaccio'),
         folderNames: ['verdaccio'],
       },
-      { name: 'folder-aurelia', folderNames: ['aurelia_project'] },
+      { name: createBase('aurelia'), folderNames: ['aurelia_project'] },
       {
-        name: 'folder-resource',
+        name: createBase('resource'),
         folderNames: [
           'resource',
           'resources',
@@ -242,7 +274,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-lib',
+        name: createBase('lib'),
         folderNames: [
           'lib',
           'libs',
@@ -255,7 +287,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-theme',
+        name: createBase('theme'),
         folderNames: [
           'themes',
           'theme',
@@ -269,10 +301,10 @@ export const folderIcons: FolderTheme[] = [
           'palettes',
         ],
       },
-      { name: 'folder-webpack', folderNames: ['webpack'] },
-      { name: 'folder-global', folderNames: ['global'] },
+      { name: createBase('webpack'), folderNames: ['webpack'] },
+      { name: createBase('global'), folderNames: ['global'] },
       {
-        name: 'folder-public',
+        name: createBase('public'),
         folderNames: [
           'public',
           'www',
@@ -286,7 +318,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-include',
+        name: createBase('include'),
         folderNames: [
           'inc',
           'include',
@@ -297,111 +329,111 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-docker',
+        name: createBase('docker'),
         folderNames: ['docker', 'dockerfiles', 'dockerhub'],
       },
       {
-        name: 'folder-ngrx-store',
+        name: createBase('ngrx-store'),
         folderNames: ['store'],
         enabledFor: [IconPack.Ngrx],
       },
       {
-        name: 'folder-ngrx-effects',
+        name: createBase('ngrx-effects'),
         folderNames: ['effects'],
         enabledFor: [IconPack.Ngrx],
         clone: {
           base: 'folder-ngrx-store',
-          color: 'cyan-500',
+          color: createCloneColor('cyan'),
         },
       },
       {
-        name: 'folder-ngrx-state',
+        name: createBase('ngrx-state'),
         folderNames: ['states', 'state'],
         enabledFor: [IconPack.Ngrx],
         clone: {
           base: 'folder-ngrx-store',
-          color: 'lime-800',
+          color: createCloneColor('green'),
         },
       },
       {
-        name: 'folder-ngrx-reducer',
+        name: createBase('ngrx-reducer'),
         folderNames: ['reducers', 'reducer'],
         enabledFor: [IconPack.Ngrx],
         clone: {
           base: 'folder-ngrx-store',
-          color: 'red-400',
+          color: createCloneColor('red'),
         },
       },
       {
-        name: 'folder-ngrx-actions',
+        name: createBase('ngrx-actions'),
         folderNames: ['actions'],
         enabledFor: [IconPack.Ngrx],
         clone: {
           base: 'folder-ngrx-store',
-          color: 'purple-400',
+          color: createCloneColor('violet'),
         },
       },
       {
-        name: 'folder-ngrx-entities',
+        name: createBase('ngrx-entities'),
         folderNames: ['entities'],
         enabledFor: [IconPack.Ngrx],
         clone: {
           base: 'folder-ngrx-store',
-          color: 'yellow-700',
+          color: createCloneColor('yellow'),
         },
       },
       {
-        name: 'folder-ngrx-selectors',
+        name: createBase('ngrx-selectors'),
         folderNames: ['selectors'],
         enabledFor: [IconPack.Ngrx],
         clone: {
           base: 'folder-ngrx-store',
-          color: 'deep-orange-A200',
+          color: createCloneColor('orange'),
         },
       },
       {
-        name: 'folder-redux-reducer',
+        name: createBase('redux-reducer'),
         folderNames: ['reducers', 'reducer', 'redux-reducer', 'redux-reducers'],
         enabledFor: [IconPack.Redux],
       },
       {
-        name: 'folder-redux-actions',
+        name: createBase('redux-actions'),
         folderNames: ['actions'],
         enabledFor: [IconPack.Redux],
         clone: {
           base: 'folder-redux-reducer',
-          color: 'purple-400',
+          color: createCloneColor('violet'),
         },
       },
       {
-        name: 'folder-redux-toolkit',
+        name: createBase('redux-toolkit'),
         folderNames: ['redux', 'redux-toolkit'],
         enabledFor: [IconPack.Redux],
         clone: {
           base: 'folder-redux-reducer',
-          color: 'purple-300',
+          color: createCloneColor('violet'),
         },
       },
       {
-        name: 'folder-redux-selector',
+        name: createBase('redux-selector'),
         folderNames: ['selectors', 'selector'],
         enabledFor: [IconPack.Redux],
         clone: {
           base: 'folder-redux-reducer',
-          color: 'deep-orange-A200',
+          color: createCloneColor('orange'),
         },
       },
       {
-        name: 'folder-redux-store',
+        name: createBase('redux-store'),
         folderNames: ['store', 'stores'],
         enabledFor: [IconPack.Redux],
         clone: {
           base: 'folder-redux-reducer',
-          color: 'light-green-500',
+          color: createCloneColor('green'),
         },
       },
       {
-        name: 'folder-react-components',
+        name: createBase('react-components'),
         folderNames: [
           'components',
           'react',
@@ -412,23 +444,26 @@ export const folderIcons: FolderTheme[] = [
         enabledFor: [IconPack.React, IconPack.Redux],
       },
       {
-        name: 'folder-astro',
+        name: createBase('astro'),
         folderNames: ['astro'],
       },
       {
-        name: 'folder-database',
+        name: createBase('database'),
         folderNames: ['db', 'data', 'database', 'databases', 'sql'],
       },
-      { name: 'folder-migrations', folderNames: ['migrations', 'migration'] },
-      { name: 'folder-log', folderNames: ['log', 'logs', 'logging'] },
-      { name: 'folder-target', folderNames: ['target'] },
       {
-        name: 'folder-temp',
+        name: createBase('migrations'),
+        folderNames: ['migrations', 'migration'],
+      },
+      { name: createBase('log'), folderNames: ['log', 'logs', 'logging'] },
+      { name: createBase('target'), folderNames: ['target'] },
+      {
+        name: createBase('temp'),
         folderNames: ['temp', 'tmp', 'cached', 'cache'],
       },
-      { name: 'folder-aws', folderNames: ['aws', 'azure', 'gcp'] },
+      { name: createBase('aws'), folderNames: ['aws', 'azure', 'gcp'] },
       {
-        name: 'folder-audio',
+        name: createBase('audio'),
         folderNames: [
           'aud',
           'auds',
@@ -447,7 +482,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-video',
+        name: createBase('video'),
         folderNames: [
           'vid',
           'vids',
@@ -459,26 +494,26 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-kubernetes',
+        name: createBase('kubernetes'),
         folderNames: ['kubernetes', 'k8s'],
       },
       {
-        name: 'folder-import',
+        name: createBase('import'),
         folderNames: ['import', 'imports', 'imported'],
       },
       {
-        name: 'folder-export',
+        name: createBase('export'),
         folderNames: ['export', 'exports', 'exported'],
       },
-      { name: 'folder-wakatime', folderNames: ['wakatime'] },
-      { name: 'folder-circleci', folderNames: ['circleci'] },
+      { name: createBase('wakatime'), folderNames: ['wakatime'] },
+      { name: createBase('circleci'), folderNames: ['circleci'] },
       {
-        name: 'folder-wordpress',
+        name: createBase('wordpress'),
         folderNames: ['wordpress-org', 'wp-content'],
       },
-      { name: 'folder-gradle', folderNames: ['gradle'] },
+      { name: createBase('gradle'), folderNames: ['gradle'] },
       {
-        name: 'folder-coverage',
+        name: createBase('coverage'),
         folderNames: [
           'coverage',
           'nyc-output',
@@ -490,7 +525,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-class',
+        name: createBase('class'),
         folderNames: [
           'class',
           'classes',
@@ -501,7 +536,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-other',
+        name: createBase('other'),
         folderNames: [
           'other',
           'others',
@@ -512,10 +547,10 @@ export const folderIcons: FolderTheme[] = [
           'etc',
         ],
       },
-      { name: 'folder-lua', folderNames: ['lua'] },
-      { name: 'folder-turborepo', folderNames: ['turbo'] },
+      { name: createBase('lua'), folderNames: ['lua'] },
+      { name: createBase('turborepo'), folderNames: ['turbo'] },
       {
-        name: 'folder-typescript',
+        name: createBase('typescript'),
         folderNames: [
           'typescript',
           'ts',
@@ -526,9 +561,9 @@ export const folderIcons: FolderTheme[] = [
           'mts',
         ],
       },
-      { name: 'folder-graphql', folderNames: ['graphql', 'gql'] },
+      { name: createBase('graphql'), folderNames: ['graphql', 'gql'] },
       {
-        name: 'folder-routes',
+        name: createBase('routes'),
         folderNames: [
           'routes',
           'router',
@@ -538,9 +573,9 @@ export const folderIcons: FolderTheme[] = [
           'routing',
         ],
       },
-      { name: 'folder-ci', folderNames: ['ci'] },
+      { name: createBase('ci'), folderNames: ['ci'] },
       {
-        name: 'folder-eslint',
+        name: createBase('eslint'),
         folderNames: [
           'eslint',
           'eslint-plugin',
@@ -550,7 +585,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-benchmark',
+        name: createBase('benchmark'),
         folderNames: [
           'benchmark',
           'benchmarks',
@@ -564,7 +599,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-messages',
+        name: createBase('messages'),
         folderNames: [
           'messages',
           'messaging',
@@ -577,9 +612,9 @@ export const folderIcons: FolderTheme[] = [
           'dialogs',
         ],
       },
-      { name: 'folder-less', folderNames: ['less'] },
+      { name: createBase('less'), folderNames: ['less'] },
       {
-        name: 'folder-gulp',
+        name: createBase('gulp'),
         folderNames: [
           'gulp',
           'gulp-tasks',
@@ -591,29 +626,29 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-python',
+        name: createBase('python'),
         folderNames: ['python', 'pycache', 'pytest_cache'],
       },
       {
-        name: 'folder-sandbox',
+        name: createBase('sandbox'),
         folderNames: ['sandbox', 'sandboxes', 'playground', 'playgrounds'],
       },
       {
-        name: 'folder-scons',
+        name: createBase('scons'),
         folderNames: ['scons', 'sconf_temp', 'scons_cache'],
       },
       {
-        name: 'folder-mojo',
+        name: createBase('mojo'),
         folderNames: ['mojo'],
       },
-      { name: 'folder-moon', folderNames: ['moon'] },
+      { name: createBase('moon'), folderNames: ['moon'] },
       {
-        name: 'folder-debug',
+        name: createBase('debug'),
         folderNames: ['debug', 'debugger', 'debugging'],
       },
-      { name: 'folder-fastlane', folderNames: ['fastlane'] },
+      { name: createBase('fastlane'), folderNames: ['fastlane'] },
       {
-        name: 'folder-plugin',
+        name: createBase('plugin'),
         folderNames: [
           'plugin',
           'plugins',
@@ -631,11 +666,11 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-middleware',
+        name: createBase('middleware'),
         folderNames: ['middleware', 'middlewares'],
       },
       {
-        name: 'folder-controller',
+        name: createBase('controller'),
         folderNames: [
           'controller',
           'controllers',
@@ -648,9 +683,9 @@ export const folderIcons: FolderTheme[] = [
           'handlers',
         ],
       },
-      { name: 'folder-ansible', folderNames: ['ansible'] },
+      { name: createBase('ansible'), folderNames: ['ansible'] },
       {
-        name: 'folder-server',
+        name: createBase('server'),
         folderNames: [
           'server',
           'servers',
@@ -663,7 +698,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-client',
+        name: createBase('client'),
         folderNames: [
           'client',
           'clients',
@@ -673,20 +708,20 @@ export const folderIcons: FolderTheme[] = [
           'spa',
         ],
       },
-      { name: 'folder-tasks', folderNames: ['tasks', 'tickets'] },
-      { name: 'folder-android', folderNames: ['android'] },
-      { name: 'folder-ios', folderNames: ['ios'] },
+      { name: createBase('tasks'), folderNames: ['tasks', 'tickets'] },
+      { name: createBase('android'), folderNames: ['android'] },
+      { name: createBase('ios'), folderNames: ['ios'] },
       {
-        name: 'folder-ui',
+        name: createBase('ui'),
         folderNames: ['presentation', 'gui', 'ui', 'ux'],
       },
-      { name: 'folder-upload', folderNames: ['uploads', 'upload'] },
+      { name: createBase('upload'), folderNames: ['uploads', 'upload'] },
       {
-        name: 'folder-download',
+        name: createBase('download'),
         folderNames: ['downloads', 'download', 'downloader', 'downloaders'],
       },
       {
-        name: 'folder-tools',
+        name: createBase('tools'),
         folderNames: [
           'tools',
           'toolkit',
@@ -699,15 +734,15 @@ export const folderIcons: FolderTheme[] = [
           'kits',
         ],
       },
-      { name: 'folder-helper', folderNames: ['helpers', 'helper'] },
-      { name: 'folder-serverless', folderNames: ['serverless'] },
-      { name: 'folder-api', folderNames: ['api', 'apis', 'restapi'] },
+      { name: createBase('helper'), folderNames: ['helpers', 'helper'] },
+      { name: createBase('serverless'), folderNames: ['serverless'] },
+      { name: createBase('api'), folderNames: ['api', 'apis', 'restapi'] },
       {
-        name: 'folder-app',
+        name: createBase('app'),
         folderNames: ['app', 'apps', 'application', 'applications'],
       },
       {
-        name: 'folder-apollo',
+        name: createBase('apollo'),
         folderNames: [
           'apollo',
           'apollo-client',
@@ -716,11 +751,11 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-archive',
+        name: createBase('archive'),
         folderNames: ['arc', 'arcs', 'archive', 'archives', 'archival'],
       },
       {
-        name: 'folder-backup',
+        name: createBase('backup'),
         folderNames: [
           'bkp',
           'bkps',
@@ -734,11 +769,14 @@ export const folderIcons: FolderTheme[] = [
           'histories',
         ],
       },
-      { name: 'folder-batch', folderNames: ['batch', 'batchs', 'batches'] },
-      { name: 'folder-buildkite', folderNames: ['buildkite'] },
-      { name: 'folder-cluster', folderNames: ['cluster', 'clusters'] },
       {
-        name: 'folder-command',
+        name: createBase('batch'),
+        folderNames: ['batch', 'batchs', 'batches'],
+      },
+      { name: createBase('buildkite'), folderNames: ['buildkite'] },
+      { name: createBase('cluster'), folderNames: ['cluster', 'clusters'] },
+      {
+        name: createBase('command'),
         folderNames: [
           'command',
           'commands',
@@ -749,20 +787,23 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-constant',
+        name: createBase('constant'),
         folderNames: ['constant', 'constants', 'const', 'consts'],
       },
       {
-        name: 'folder-container',
+        name: createBase('container'),
         folderNames: ['container', 'containers', 'devcontainer'],
       },
-      { name: 'folder-content', folderNames: ['content', 'contents'] },
-      { name: 'folder-context', folderNames: ['context', 'contexts'] },
-      { name: 'folder-core', folderNames: ['core'] },
-      { name: 'folder-delta', folderNames: ['delta', 'deltas', 'changes'] },
-      { name: 'folder-dump', folderNames: ['dump', 'dumps'] },
+      { name: createBase('content'), folderNames: ['content', 'contents'] },
+      { name: createBase('context'), folderNames: ['context', 'contexts'] },
+      { name: createBase('core'), folderNames: ['core'] },
       {
-        name: 'folder-examples',
+        name: createBase('delta'),
+        folderNames: ['delta', 'deltas', 'changes'],
+      },
+      { name: createBase('dump'), folderNames: ['dump', 'dumps'] },
+      {
+        name: createBase('examples'),
         folderNames: [
           'demo',
           'demos',
@@ -774,11 +815,11 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-environment',
+        name: createBase('environment'),
         folderNames: ['env', 'envs', 'environment', 'environments', 'venv'],
       },
       {
-        name: 'folder-functions',
+        name: createBase('functions'),
         folderNames: [
           'func',
           'funcs',
@@ -798,7 +839,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-generator',
+        name: createBase('generator'),
         folderNames: [
           'generator',
           'generators',
@@ -810,16 +851,16 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-hook',
+        name: createBase('hook'),
         folderNames: ['hook', 'hooks'],
       },
       {
-        name: 'folder-trigger',
+        name: createBase('trigger'),
         folderNames: ['trigger', 'triggers'],
       },
-      { name: 'folder-job', folderNames: ['job', 'jobs'] },
+      { name: createBase('job'), folderNames: ['job', 'jobs'] },
       {
-        name: 'folder-keys',
+        name: createBase('keys'),
         folderNames: [
           'key',
           'keys',
@@ -830,19 +871,19 @@ export const folderIcons: FolderTheme[] = [
           'secrets',
         ],
       },
-      { name: 'folder-layout', folderNames: ['layout', 'layouts'] },
+      { name: createBase('layout'), folderNames: ['layout', 'layouts'] },
       {
-        name: 'folder-mail',
+        name: createBase('mail'),
         folderNames: ['mail', 'mails', 'email', 'emails', 'smtp', 'mailers'],
       },
-      { name: 'folder-mappings', folderNames: ['mappings', 'mapping'] },
-      { name: 'folder-meta', folderNames: ['meta', 'metadata'] },
+      { name: createBase('mappings'), folderNames: ['mappings', 'mapping'] },
+      { name: createBase('meta'), folderNames: ['meta', 'metadata'] },
       {
-        name: 'folder-changesets',
+        name: createBase('changesets'),
         folderNames: ['changesets', 'changeset'],
       },
       {
-        name: 'folder-packages',
+        name: createBase('packages'),
         folderNames: [
           'package',
           'packages',
@@ -853,14 +894,14 @@ export const folderIcons: FolderTheme[] = [
           'dependencies',
         ],
       },
-      { name: 'folder-shared', folderNames: ['shared', 'common'] },
+      { name: createBase('shared'), folderNames: ['shared', 'common'] },
       {
-        name: 'folder-shader',
+        name: createBase('shader'),
         folderNames: ['glsl', 'hlsl', 'shader', 'shaders'],
       },
-      { name: 'folder-stack', folderNames: ['stack', 'stacks'] },
+      { name: createBase('stack'), folderNames: ['stack', 'stacks'] },
       {
-        name: 'folder-template',
+        name: createBase('template'),
         folderNames: [
           'template',
           'templates',
@@ -869,13 +910,13 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-utils',
+        name: createBase('utils'),
         folderNames: ['util', 'utils', 'utility', 'utilities'],
       },
-      { name: 'folder-supabase', folderNames: ['supabase'] },
-      { name: 'folder-private', folderNames: ['private'] },
+      { name: createBase('supabase'), folderNames: ['supabase'] },
+      { name: createBase('private'), folderNames: ['private'] },
       {
-        name: 'folder-linux',
+        name: createBase('linux'),
         folderNames: [
           'linux',
           'linuxbsd',
@@ -891,7 +932,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-windows',
+        name: createBase('windows'),
         folderNames: [
           'windows',
           'win',
@@ -907,7 +948,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-macos',
+        name: createBase('macos'),
         folderNames: [
           'macos',
           'mac',
@@ -923,12 +964,12 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-error',
+        name: createBase('error'),
         folderNames: ['error', 'errors', 'err', 'errs', 'crash', 'crashes'],
       },
-      { name: 'folder-event', folderNames: ['event', 'events'] },
+      { name: createBase('event'), folderNames: ['event', 'events'] },
       {
-        name: 'folder-secure',
+        name: createBase('secure'),
         folderNames: [
           'auth',
           'authentication',
@@ -944,9 +985,9 @@ export const folderIcons: FolderTheme[] = [
           'tls',
         ],
       },
-      { name: 'folder-custom', folderNames: ['custom', 'customs'] },
+      { name: createBase('custom'), folderNames: ['custom', 'customs'] },
       {
-        name: 'folder-mock',
+        name: createBase('mock'),
         folderNames: [
           'draft',
           'drafts',
@@ -961,14 +1002,14 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-syntax',
+        name: createBase('syntax'),
         folderNames: ['syntax', 'syntaxes', 'spellcheck', 'spellcheckers'],
       },
-      { name: 'folder-vm', folderNames: ['vm', 'vms'] },
-      { name: 'folder-stylus', folderNames: ['stylus'] },
-      { name: 'folder-flow', folderNames: ['flow-typed'] },
+      { name: createBase('vm'), folderNames: ['vm', 'vms'] },
+      { name: createBase('stylus'), folderNames: ['stylus'] },
+      { name: createBase('flow'), folderNames: ['flow-typed'] },
       {
-        name: 'folder-rules',
+        name: createBase('rules'),
         folderNames: [
           'rule',
           'rules',
@@ -979,7 +1020,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-review',
+        name: createBase('review'),
         folderNames: [
           'review',
           'reviews',
@@ -991,7 +1032,7 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-animation',
+        name: createBase('animation'),
         folderNames: [
           'anim',
           'anims',
@@ -1006,39 +1047,45 @@ export const folderIcons: FolderTheme[] = [
           'easings',
         ],
       },
-      { name: 'folder-guard', folderNames: ['guard', 'guards'] },
-      { name: 'folder-prisma', folderNames: ['prisma', 'prisma/schema'] },
+      { name: createBase('guard'), folderNames: ['guard', 'guards'] },
       {
-        name: 'folder-pipe',
+        name: createBase('prisma'),
+        folderNames: ['prisma', 'prisma/schema'],
+      },
+      {
+        name: createBase('pipe'),
         folderNames: ['pipe', 'pipes', 'pipeline', 'pipelines'],
       },
       {
-        name: 'folder-interceptor',
+        name: createBase('interceptor'),
         folderNames: ['interceptor', 'interceptors'],
       },
-      { name: 'folder-svg', folderNames: ['svg', 'svgs', 'vector', 'vectors'] },
       {
-        name: 'folder-vuex-store',
+        name: createBase('svg'),
+        folderNames: ['svg', 'svgs', 'vector', 'vectors'],
+      },
+      {
+        name: createBase('vuex-store'),
         folderNames: ['store', 'stores'],
         enabledFor: [IconPack.Vuex],
       },
       {
-        name: 'folder-nuxt',
+        name: createBase('nuxt'),
         folderNames: ['nuxt'],
       },
       {
-        name: 'folder-vue-directives',
+        name: createBase('vue-directives'),
         folderNames: ['directives'],
         enabledFor: [IconPack.Vuex, IconPack.Vue],
       },
       {
-        name: 'folder-vue',
+        name: createBase('vue'),
         folderNames: ['components'],
         enabledFor: [IconPack.Vuex, IconPack.Vue],
       },
-      { name: 'folder-terraform', folderNames: ['terraform'] },
+      { name: createBase('terraform'), folderNames: ['terraform'] },
       {
-        name: 'folder-mobile',
+        name: createBase('mobile'),
         folderNames: [
           'mobile',
           'mobiles',
@@ -1048,14 +1095,14 @@ export const folderIcons: FolderTheme[] = [
           'phones',
         ],
       },
-      { name: 'folder-stencil', folderNames: ['stencil'] },
-      { name: 'folder-firebase', folderNames: ['firebase'] },
+      { name: createBase('stencil'), folderNames: ['stencil'] },
+      { name: createBase('firebase'), folderNames: ['firebase'] },
       {
-        name: 'folder-firestore',
+        name: createBase('firestore'),
         folderNames: ['firestore', 'cloud-firestore', 'firebase-firestore'],
       },
       {
-        name: 'folder-cloud-functions',
+        name: createBase('cloud-functions'),
         folderNames: [
           'cloud-functions',
           'cloudfunctions',
@@ -1063,19 +1110,19 @@ export const folderIcons: FolderTheme[] = [
           'firebase-cloudfunctions',
         ],
       },
-      { name: 'folder-svelte', folderNames: ['svelte', 'svelte-kit'] },
+      { name: createBase('svelte'), folderNames: ['svelte', 'svelte-kit'] },
       {
-        name: 'folder-update',
+        name: createBase('update'),
         folderNames: ['update', 'updates', 'upgrade', 'upgrades'],
       },
-      { name: 'folder-intellij', folderNames: ['idea'], light: true },
+      { name: createBase('intellij'), folderNames: ['idea'], light: true },
       {
-        name: 'folder-azure-pipelines',
+        name: createBase('azure-pipelines'),
         folderNames: ['azure-pipelines', 'azure-pipelines-ci'],
       },
-      { name: 'folder-mjml', folderNames: ['mjml'] },
+      { name: createBase('mjml'), folderNames: ['mjml'] },
       {
-        name: 'folder-admin',
+        name: createBase('admin'),
         folderNames: [
           'admin',
           'admins',
@@ -1086,12 +1133,12 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-jupyter',
+        name: createBase('jupyter'),
         folderNames: ['jupyter', 'notebook', 'notebooks', 'ipynb'],
       },
-      { name: 'folder-scala', folderNames: ['scala'] },
+      { name: createBase('scala'), folderNames: ['scala'] },
       {
-        name: 'folder-connection',
+        name: createBase('connection'),
         folderNames: [
           'connection',
           'connections',
@@ -1101,47 +1148,47 @@ export const folderIcons: FolderTheme[] = [
           'remotes',
         ],
       },
-      { name: 'folder-quasar', folderNames: ['quasar'] },
-      { name: 'folder-next', folderNames: ['next'] },
+      { name: createBase('quasar'), folderNames: ['quasar'] },
+      { name: createBase('next'), folderNames: ['next'] },
       {
-        name: 'folder-dal',
+        name: createBase('dal'),
         folderNames: ['dal', 'data-access', 'data-access-layer'],
       },
-      { name: 'folder-cobol', folderNames: ['cobol'] },
-      { name: 'folder-yarn', folderNames: ['yarn'] },
-      { name: 'folder-husky', folderNames: ['husky'] },
+      { name: createBase('cobol'), folderNames: ['cobol'] },
+      { name: createBase('yarn'), folderNames: ['yarn'] },
+      { name: createBase('husky'), folderNames: ['husky'] },
       {
-        name: 'folder-storybook',
+        name: createBase('storybook'),
         folderNames: ['storybook', 'stories'],
       },
-      { name: 'folder-base', folderNames: ['base', 'bases'] },
+      { name: createBase('base'), folderNames: ['base', 'bases'] },
       {
-        name: 'folder-cart',
+        name: createBase('cart'),
         folderNames: ['cart', 'shopping-cart', 'shopping', 'shop'],
       },
       {
-        name: 'folder-home',
+        name: createBase('home'),
         folderNames: ['home', 'start', 'main', 'landing'],
       },
       {
-        name: 'folder-project',
+        name: createBase('project'),
         folderNames: ['project', 'projects', 'proj', 'projs'],
       },
       {
-        name: 'folder-prompts',
+        name: createBase('prompts'),
         folderNames: ['prompt', 'prompts'],
       },
       {
-        name: 'folder-interface',
+        name: createBase('interface'),
         folderNames: ['interface', 'interfaces'],
       },
-      { name: 'folder-netlify', folderNames: ['netlify'] },
+      { name: createBase('netlify'), folderNames: ['netlify'] },
       {
-        name: 'folder-enum',
+        name: createBase('enum'),
         folderNames: ['enum', 'enums'],
       },
       {
-        name: 'folder-contract',
+        name: createBase('contract'),
         folderNames: [
           'pact',
           'pacts',
@@ -1153,152 +1200,158 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-helm',
+        name: createBase('helm'),
         folderNames: ['helm', 'helmchart', 'helmcharts'],
       },
       {
-        name: 'folder-queue',
+        name: createBase('queue'),
         folderNames: ['queue', 'queues', 'bull', 'mq'],
       },
       {
-        name: 'folder-vercel',
+        name: createBase('vercel'),
         folderNames: ['vercel', 'now'],
       },
       {
-        name: 'folder-cypress',
+        name: createBase('cypress'),
         folderNames: ['cypress'],
       },
       {
-        name: 'folder-decorators',
+        name: createBase('decorators'),
         folderNames: ['decorator', 'decorators'],
       },
       {
-        name: 'folder-java',
+        name: createBase('java'),
         folderNames: ['java'],
       },
       {
-        name: 'folder-resolver',
+        name: createBase('resolver'),
         folderNames: ['resolver', 'resolvers'],
       },
       {
-        name: 'folder-angular',
+        name: createBase('angular'),
         folderNames: ['angular'],
       },
       {
-        name: 'folder-unity',
+        name: createBase('unity'),
         folderNames: ['unity'],
       },
       {
-        name: 'folder-pdf',
+        name: createBase('pdf'),
         folderNames: ['pdf', 'pdfs'],
       },
       {
-        name: 'folder-proto',
+        name: createBase('proto'),
         folderNames: ['protobuf', 'protobufs', 'proto', 'protos'],
       },
       {
-        name: 'folder-plastic',
+        name: createBase('plastic'),
         folderNames: ['plastic'],
       },
       {
-        name: 'folder-gamemaker',
+        name: createBase('gamemaker'),
         folderNames: ['gamemaker', 'gamemaker2'],
       },
       {
-        name: 'folder-mercurial',
+        name: createBase('mercurial'),
         folderNames: ['hg', 'hghooks', 'hgext'],
       },
       {
-        name: 'folder-godot',
+        name: createBase('godot'),
         folderNames: ['godot', 'godot-cpp'],
       },
       {
-        name: 'folder-lottie',
+        name: createBase('lottie'),
         folderNames: ['lottie', 'lotties', 'lottiefiles'],
       },
       {
-        name: 'folder-taskfile',
+        name: createBase('taskfile'),
         folderNames: ['taskfile', 'taskfiles'],
       },
       {
-        name: 'folder-drizzle',
+        name: createBase('drizzle'),
         folderNames: ['drizzle'],
       },
       {
-        name: 'folder-cloudflare',
+        name: createBase('cloudflare'),
         folderNames: ['cloudflare'],
       },
       {
-        name: 'folder-seeders',
+        name: createBase('seeders'),
         folderNames: ['seeds', 'seeders', 'seed', 'seeding'],
       },
       {
-        name: 'folder-store',
+        name: createBase('store'),
         folderNames: ['store', 'stores'],
         enabledFor: [IconPack.Angular],
       },
-      { name: 'folder-bicep', folderNames: ['bicep'] },
-      { name: 'folder-snapcraft', folderNames: ['snap', 'snapcraft'] },
+      { name: createBase('bicep'), folderNames: ['bicep'] },
+      { name: createBase('snapcraft'), folderNames: ['snap', 'snapcraft'] },
       {
-        name: 'folder-development',
+        name: createBase('development'),
         folderNames: ['dev', 'development'],
         clone: {
           base: 'folder-src',
-          color: 'light-blue-700',
+          color: createCloneColor('blue'),
         },
       },
-      { name: 'folder-flutter', folderNames: ['flutter'] },
-      { name: 'folder-snippet', folderNames: ['snippet', 'snippets'] },
-      { name: 'folder-element', folderNames: ['element', 'elements'] },
+      { name: createBase('flutter'), folderNames: ['flutter'] },
+      { name: createBase('snippet'), folderNames: ['snippet', 'snippets'] },
+      { name: createBase('element'), folderNames: ['element', 'elements'] },
       {
-        name: 'folder-src-tauri',
+        name: createBase('src-tauri'),
         folderNames: ['src-tauri'],
       },
       {
-        name: 'folder-favicon',
+        name: createBase('favicon'),
         folderNames: ['favicon', 'favicons'],
       },
       {
-        name: 'folder-features',
+        name: createBase('features'),
         folderNames: ['feature', 'features', 'feat', 'feats'],
       },
       {
-        name: 'folder-lefthook',
+        name: createBase('lefthook'),
         folderNames: ['lefthook', 'lefthook-local'],
       },
       {
-        name: 'folder-bloc',
+        name: createBase('bloc'),
         folderNames: ['bloc', 'cubit', 'blocs', 'cubits'],
       },
       {
-        name: 'folder-powershell',
+        name: createBase('powershell'),
         folderNames: ['powershell', 'ps', 'ps1'],
       },
       {
-        name: 'folder-repository',
+        name: createBase('repository'),
         folderNames: ['repository', 'repositories', 'repo', 'repos'],
       },
       {
-        name: 'folder-luau',
+        name: createBase('luau'),
         folderNames: ['luau'],
       },
-      { name: 'folder-obsidian', folderNames: ['obsidian'] },
-      { name: 'folder-trash', folderNames: ['trash'] },
-      { name: 'folder-cline', folderNames: ['cline_docs'] },
-      { name: 'folder-liquibase', folderNames: ['liquibase'] },
-      { name: 'folder-dart', folderNames: ['dart', 'dart_tool', 'dart_tools'] },
-      { name: 'folder-zeabur', folderNames: ['zeabur'] },
-      { name: 'folder-kusto', folderNames: ['kusto', 'kql'] },
-      { name: 'folder-policy', folderNames: ['policy', 'policies'] },
-      { name: 'folder-attachment', folderNames: ['attachment', 'attachments'] },
+      { name: createBase('obsidian'), folderNames: ['obsidian'] },
+      { name: createBase('trash'), folderNames: ['trash'] },
+      { name: createBase('cline'), folderNames: ['cline_docs'] },
+      { name: createBase('liquibase'), folderNames: ['liquibase'] },
       {
-        name: 'folder-bibliography',
+        name: createBase('dart'),
+        folderNames: ['dart', 'dart_tool', 'dart_tools'],
+      },
+      { name: createBase('zeabur'), folderNames: ['zeabur'] },
+      { name: createBase('kusto'), folderNames: ['kusto', 'kql'] },
+      { name: createBase('policy'), folderNames: ['policy', 'policies'] },
+      {
+        name: createBase('attachment'),
+        folderNames: ['attachment', 'attachments'],
+      },
+      {
+        name: createBase('bibliography'),
         folderNames: ['bibliography', 'bibliographies', 'book', 'books'],
       },
-      { name: 'folder-link', folderNames: ['link', 'links'] },
-      { name: 'folder-pytorch', folderNames: ['pytorch', 'torch'] },
+      { name: createBase('link'), folderNames: ['link', 'links'] },
+      { name: createBase('pytorch'), folderNames: ['pytorch', 'torch'] },
       {
-        name: 'folder-blender',
+        name: createBase('blender'),
         folderNames: [
           'blender',
           'blender-assets',
@@ -1308,68 +1361,62 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'folder-atom',
+        name: createBase('atom'),
         folderNames: ['atoms', 'atom'],
       },
       {
-        name: 'folder-molecule',
+        name: createBase('molecule'),
         folderNames: ['molecules', 'molecule'],
       },
       {
-        name: 'folder-organism',
+        name: createBase('organism'),
         folderNames: ['organisms', 'organism'],
       },
       {
-        name: 'folder-claude',
+        name: createBase('claude'),
         folderNames: ['.claude'],
       },
       {
-        name: 'folder-cursor',
+        name: createBase('cursor'),
         folderNames: ['.cursor'],
         light: true,
       },
       {
-        name: 'folder-gemini-ai',
+        name: createBase('gemini-ai'),
         folderNames: ['.gemini', 'gemini', 'gemini-ai', 'geminiai'],
       },
       {
-        name: 'folder-input',
+        name: createBase('input'),
         folderNames: ['input', 'inputs', 'io', 'in'],
       },
       {
-        name: 'folder-salt',
+        name: createBase('salt'),
         folderNames: ['salt', 'saltstack'],
       },
       {
-        name: 'folder-simulations',
+        name: createBase('simulations'),
         folderNames: ['simulations', 'simulation', 'sim', 'sims'],
       },
       {
-        name: 'folder-metro',
+        name: createBase('metro'),
         folderNames: ['metro'],
       },
       {
-        name: 'folder-filter',
+        name: createBase('filter'),
         folderNames: ['filter', 'filters'],
       },
       {
-        name: 'folder-toc',
+        name: createBase('toc'),
         folderNames: ['toc', 'table-of-contents'],
       },
       {
-        name: 'folder-cue',
+        name: createBase('cue'),
         folderNames: ['cue', 'cues'],
       },
       {
-        name: 'folder-license',
+        name: createBase('license'),
         folderNames: ['license', 'licenses'],
       },
     ],
-  },
-  {
-    name: 'classic',
-    defaultIcon: { name: 'folder' },
-    rootFolder: { name: 'folder-root' },
-  },
-  { name: 'none', defaultIcon: { name: '' } },
-];
+  };
+}

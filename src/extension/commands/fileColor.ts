@@ -13,14 +13,29 @@ type FileColor = {
 };
 
 const iconPalette: FileColor[] = [
-  { label: 'Grey (Default)', hex: '#90a4ae' },
-  { label: 'Blue', hex: '#42a5f5' },
-  { label: 'Green', hex: '#7CB342' },
-  { label: 'Teal', hex: '#26A69A' },
-  { label: 'Red', hex: '#EF5350' },
-  { label: 'Orange', hex: '#FF7043' },
-  { label: 'Yellow', hex: '#FDD835' },
+  { label: 'Base', hex: '#45403d' },
   { label: 'Custom Color', hex: 'Custom HEX Code' },
+
+  { label: 'Black', hex: '#665c54' },
+  { label: 'Blue', hex: '#7daea3' },
+  { label: 'Blue Dim', hex: '#68948a' },
+  { label: 'Cyan', hex: '#89b482' },
+  { label: 'Cyan Dim', hex: '#72966c' },
+  { label: 'Green', hex: '#a9b665' },
+  { label: 'Green Dim', hex: '#8f9a52' },
+  { label: 'Orange', hex: '#e78a4e' },
+  { label: 'Orange Dim', hex: '#bd6f3e' },
+  { label: 'Pink', hex: '#d3869b' },
+  { label: 'Pink Dim', hex: '#ab6c7d' },
+  { label: 'Purple', hex: '#9b6f96' },
+  { label: 'Purple Dim', hex: '#7a4f72' },
+  { label: 'Red', hex: '#ea6962' },
+  { label: 'Red Dim', hex: '#b85651' },
+  { label: 'Violet', hex: '#7276a6' },
+  { label: 'Violet Dim', hex: '#5c6089' },
+  { label: 'White', hex: '#ebdbb2' },
+  { label: 'Yellow', hex: '#e3ae5a' },
+  { label: 'Yellow Dim', hex: '#c18f41' },
 ];
 
 /** Command to toggle the file icons. */

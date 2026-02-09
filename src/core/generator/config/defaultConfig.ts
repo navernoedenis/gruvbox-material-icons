@@ -2,7 +2,7 @@ import { merge } from '../../helpers/object';
 import type { Config } from '../../models/icons/config';
 import type { RecursivePartial } from '../../types/recursivePartial';
 
-const defaultColor = '#90a4ae'; // blue-gray-300
+const defaultColor = '#45403d';
 
 /**
  * The options control the generator and decide which icons are disabled or not.

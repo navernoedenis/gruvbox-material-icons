@@ -100,7 +100,6 @@ const isIconAvailable = (
   if (!isClone && icon.highContrast && iconColor === IconColor.HighContrast) {
     iconName += highContrastColorFileEnding;
   }
-
   if (
     !availableIcons[iconName] &&
     wrongIconNames[iconType].indexOf(iconName) === -1
@@ -132,7 +131,7 @@ const getCloneBaseName = (
     iconType === IconType.FolderIcons
       ? clone.base === 'folder'
         ? 'folder'
-        : clone.base.startsWith('folder-')
+        : clone.base.startsWith('folder-') || clone.base.startsWith('colorful-')
           ? clone.base
           : `folder-${clone?.base}`
       : clone.base;
@@ -194,12 +193,12 @@ const handleErrors = () => {
     wrongIconNames.languageIcons.length;
   if (amountOfErrors > 0) {
     console.log(
-      '> Material Icon Theme:',
+      '> Gruvbox Material Icons:',
       red(`Found ${amountOfErrors} error(s) in the icon configuration!`)
     );
   } else {
     console.log(
-      '> Material Icon Theme:',
+      '> Gruvbox Material Icons:',
       green('Passed icon availability checks!')
     );
   }

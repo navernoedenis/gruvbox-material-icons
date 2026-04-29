@@ -96,23 +96,23 @@ export const languageIcons: LanguageIcon[] = [
   {
     name: 'latex',
     ids: ['latex', 'latex-expl3'],
-    clone: { base: 'tex', color: 'teal-A700' },
+    clone: { base: 'tex', color: 'cyan' },
   },
   {
     name: 'latex-class',
     ids: ['latex-class'],
-    clone: { base: 'tex', color: 'purple-A200' },
+    clone: { base: 'tex', color: 'purple' },
   },
   {
     name: 'latex-package',
     ids: ['latex-package'],
-    clone: { base: 'tex', color: 'deep-purple-A100' },
+    clone: { base: 'tex', color: 'purple' },
   },
   { name: 'context', ids: ['context'] },
   {
     name: 'doctex',
     ids: ['doctex'],
-    clone: { base: 'tex', color: 'yellow-900' },
+    clone: { base: 'tex', color: 'yellow' },
   },
   { name: 'doctex-installer', ids: ['doctex-installer'] },
   { name: 'bibliography', ids: ['bibtex'] },
@@ -199,7 +199,7 @@ export const languageIcons: LanguageIcon[] = [
     ids: ['ahk2'],
     clone: {
       base: 'autohotkey',
-      color: 'lime-700',
+      color: 'green',
     },
   },
   { name: 'gnuplot', ids: ['gnuplot'] },

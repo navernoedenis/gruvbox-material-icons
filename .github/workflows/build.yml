@@ -53,4 +53,4 @@ jobs:
         id: build
         run: |
           bun test
-          bun run vscode:prepublish
+          bun run vsce:prebuild

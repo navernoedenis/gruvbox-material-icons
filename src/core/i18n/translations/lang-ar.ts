@@ -2,7 +2,7 @@ import type { Translation } from '../../models/i18n/translation';
 
 export const translation: Translation = {
   activate: 'تفعيل',
-  activated: 'تم تفعيل Material Icon Theme.',
+  activated: 'تم تفعيل Gruvbox Material Icons.',
   iconPacks: {
     selectPack: 'اختر حزمة الأيقونات',
     description: "اختر حزمة الأيقونات '%0'",

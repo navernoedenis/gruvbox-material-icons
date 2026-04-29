@@ -3510,5 +3510,9 @@ export const fileIcons: FileIcons = {
       fileNames: ['eas.json', '.easignore'],
       light: true,
     },
+    {
+      name: 'mrpack',
+      fileExtensions: ['mrpack'],
+    },
   ]),
 };

@@ -60,10 +60,14 @@ const checkUsageOfAllIcons = () => {
 const handleErrors = () => {
   const amountOfUnusedIcons = Object.keys(availableIcons).length;
   if (amountOfUnusedIcons === 0) {
-    console.log('> Material Icon Theme:', green('Passed icon usage checks!'));
+    console.log(
+      '> Gruvbox Icons (Material):',
+      green('Passed icon usage checks!')
+    );
   } else {
     console.log(
-      '> Material Icon Theme: ' + red(`${amountOfUnusedIcons} unused icon(s):`)
+      '> Gruvbox Icons (Material): ' +
+        red(`${amountOfUnusedIcons} unused icon(s):`)
     );
     Object.keys(availableIcons).forEach((icon) => {
       console.log(red(`- ${availableIcons[icon]}`));

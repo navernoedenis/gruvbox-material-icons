@@ -1,12 +1,12 @@
 /**
  * Name of the VS Code extension.
  */
-export const extensionName = 'material-icon-theme';
+export const extensionName = 'gruvbox-material-icons';
 
 /**
  * Name of the extension publisher.
  */
-export const extensionPublisher = 'PKief';
+export const extensionPublisher = 'navernoedenis';
 
 /**
  * Key to identify the log event.

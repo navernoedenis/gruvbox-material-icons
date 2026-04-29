@@ -2,7 +2,7 @@ import type { Translation } from '../../models/i18n/translation';
 
 export const translation: Translation = {
   activate: '有効化',
-  activated: 'Material Icon Theme は有効です。',
+  activated: 'Gruvbox Icons (Material) は有効です。',
   iconPacks: {
     selectPack: 'アイコンパックを選択する',
     description: "アイコンパック '%0' を選択する",

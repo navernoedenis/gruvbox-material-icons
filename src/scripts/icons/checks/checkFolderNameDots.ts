@@ -32,7 +32,7 @@ export const check = async () => {
 
   if (violations.length > 0) {
     console.log(
-      '> Material Icon Theme:',
+      '> Gruvbox Icons (Material):',
       red('Folder names must not start with a dot!')
     );
     console.log(
@@ -55,7 +55,7 @@ export const check = async () => {
     );
   } else {
     console.log(
-      '> Material Icon Theme:',
+      '> Gruvbox Icons (Material):',
       green('Passed folder name dot prefix checks!')
     );
   }

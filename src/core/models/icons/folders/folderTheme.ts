@@ -23,4 +23,4 @@ export type FolderTheme = {
   icons?: FolderIcon[];
 };
 
-export type FolderThemeName = 'specific' | 'classic' | 'none';
+export type FolderThemeName = 'specific' | 'classic' | 'colorful' | 'none';

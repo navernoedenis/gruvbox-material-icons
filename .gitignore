@@ -25,6 +25,10 @@ icons/folder-*-open.svg
 icons/folder-*-open_light.svg
 icons/folder-*-open_highContrast.svg
 
+icons/colorful-folder-*-open.svg
+icons/colorful-folder-*-open_light.svg
+icons/colorful-folder-*-open_highContrast.svg
+
 # Ignore specific HTML files in scripts directories
 src/scripts/preview/*.html
 src/scripts/contributors/*.html

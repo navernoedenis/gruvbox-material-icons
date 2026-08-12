@@ -25,7 +25,8 @@ import { similarity } from '../../helpers/similarity';
  * A generated open folder icon is considered "virtually available" if the
  * corresponding closed variant exists on disk.
  */
-const GENERATED_OPEN_FOLDER_RE = /^folder-.+-open(_light|_highContrast)?$/;
+const GENERATED_OPEN_FOLDER_RE =
+  /^(?:folder|colorful-folder)-.+-open(_light|_highContrast)?$/;
 
 /**
  * Defines the folder where all icon files are located.
@@ -121,7 +122,7 @@ const getCloneBaseName = (
     iconType === IconType.FolderIcons
       ? clone.base === 'folder'
         ? 'folder'
-        : clone.base.startsWith('folder-')
+        : clone.base.startsWith('folder-') || clone.base.startsWith('colorful-')
           ? clone.base
           : `folder-${clone?.base}`
       : clone.base;
@@ -214,7 +215,7 @@ export const check = async () => {
 
   if (missing.length > 0) {
     console.log(
-      '> Material Icon Theme:',
+      '> Gruvbox Icons (Material):',
       red(`Found ${missing.length} error(s) in the icon configuration!`)
     );
     logIconInformation(missing, availableIcons);
@@ -223,7 +224,7 @@ export const check = async () => {
     );
   } else {
     console.log(
-      '> Material Icon Theme:',
+      '> Gruvbox Icons (Material):',
       green('Passed icon availability checks!')
     );
   }

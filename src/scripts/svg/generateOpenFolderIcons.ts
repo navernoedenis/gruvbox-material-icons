@@ -32,8 +32,11 @@ const EXCLUDED_FILES = new Set([
  * Check if a file is a closed folder SVG that needs an open variant generated.
  */
 function isClosedFolderSvg(fileName: string): boolean {
+  const isFolder =
+    fileName.startsWith('folder-') || fileName.startsWith('colorful-folder-');
+
   return (
-    fileName.startsWith('folder-') &&
+    isFolder &&
     fileName.endsWith('.svg') &&
     !/-open([_.])/.test(fileName) &&
     !fileName.endsWith('.clone.svg') &&
@@ -50,7 +53,7 @@ function isClosedFolderSvg(fileName: string): boolean {
  */
 function getOpenFileName(closedFileName: string): string {
   const suffixMatch = closedFileName.match(
-    /^(folder-.+?)(_(light|highContrast))?\.svg$/
+    /^((?:folder|colorful-folder)-.+?)(_(light|highContrast))?\.svg$/
   );
   if (!suffixMatch) {
     throw new Error(`Unexpected filename format: ${closedFileName}`);

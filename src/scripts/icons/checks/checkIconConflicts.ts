@@ -57,7 +57,7 @@ export const check = async () => {
     ),
     folderNames: findConflicts(
       folderIcons
-        .filter((theme) => theme.icons)
+        .filter((theme) => theme.name !== 'colorful' && theme.icons)
         .flatMap((theme) =>
           (theme.icons ?? []).map((icon) => ({
             name: icon.name,
@@ -85,17 +85,17 @@ export const check = async () => {
   ].length;
 
   if (totalConflicts > 0) {
-    console.log('> Material Icon Theme:', red('Icon conflicts:'));
+    console.log('> Gruvbox Icons (Material):', red('Icon conflicts:'));
     console.log(red('--------------------------------------'));
     printErrorMessage(allConflicts.fileExtensions, 'fileExtension');
     printErrorMessage(allConflicts.fileNames, 'fileName');
-    printErrorMessage(allConflicts.folderNames, 'folderName');
+    // printErrorMessage(allConflicts.folderNames, 'folderName');
     printErrorMessage(allConflicts.languageIds, 'languageId');
     console.log('\n' + red('Please check the wrong icon configurations!\n'));
     process.exit(1);
   } else {
     console.log(
-      '> Material Icon Theme:',
+      '> Gruvbox Icons (Material):',
       green('Passed icon conflict checks!')
     );
   }

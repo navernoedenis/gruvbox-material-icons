@@ -62,10 +62,13 @@ export const check = async () => {
   const unused = findUnusedIcons(iconsOnDisk, usedIcons);
 
   if (unused.length === 0) {
-    console.log('> Material Icon Theme:', green('Passed icon usage checks!'));
+    console.log(
+      '> Gruvbox Icons (Material):',
+      green('Passed icon usage checks!')
+    );
   } else {
     console.log(
-      '> Material Icon Theme: ' + red(`${unused.length} unused icon(s):`)
+      '> Gruvbox Icons (Material): ' + red(`${unused.length} unused icon(s):`)
     );
     for (const icon of unused) {
       console.log(red(`- ${icon}`));

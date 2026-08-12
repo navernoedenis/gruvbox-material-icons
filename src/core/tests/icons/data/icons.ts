@@ -37,7 +37,7 @@ export const folder = `
 export const folderIgnores = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <polygon points="12 8 12 6 2 6 2 26 30 26 30 8 12 8" style="fill:#009688"/>
-  <path data-mit-no-recolor="true" d="M20,12v2h2V24a4,4,0,0,0,8,0V14h2V12Z" style="fill:red;fill-rule:evenodd"/>
+  <path data-mit-no-recolor="true" d="M20,12v2h2V24a4,4,0,0,0,8,0V14h2V12Z" style="fill:#ea6962;fill-rule:evenodd"/>
 </svg>
 `;
 

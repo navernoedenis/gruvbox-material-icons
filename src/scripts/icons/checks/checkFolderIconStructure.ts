@@ -48,8 +48,11 @@ interface ValidationError {
  * Check if a file should be validated by this script.
  */
 function shouldValidate(fileName: string): boolean {
+  const isFolder =
+    fileName.startsWith('folder-') || fileName.startsWith('colorful-folder-');
+
   return (
-    fileName.startsWith('folder-') &&
+    isFolder &&
     fileName.endsWith('.svg') &&
     !fileName.includes('-open') &&
     !fileName.endsWith('.clone.svg') &&
@@ -160,7 +163,7 @@ export async function check(): Promise<void> {
 
   if (validationErrors.length === 0) {
     console.log(
-      '> Material Icon Theme:',
+      '> Gruvbox Icons (Material):',
       green('Passed folder icon structure checks!')
     );
     return;
@@ -172,7 +175,7 @@ export async function check(): Promise<void> {
   );
 
   console.log(
-    '> Material Icon Theme:',
+    '> Gruvbox Icons (Material):',
     red(
       `Found ${totalErrors} structural error(s) in ${validationErrors.length} folder icon(s)!`
     )

@@ -429,8 +429,8 @@ The following example demonstrates how the shapes of the `rust` file icon can be
   light: true, // needed if a `lightColor` is provided
   clone: {
     base: 'rust',
-    color: 'green-400',
-    lightColor: 'green-700', // optional
+    color: 'green',
+    lightColor: 'green', // optional
   },
 },
 ```
@@ -516,8 +516,8 @@ Logging can be enabled with the following settings:
 
 ```json
 {
-  "material-icon-theme.enableLogging": true,
-  "material-icon-theme.logLevel": "debug",
+  "gruvbox-material-icons.enableLogging": true,
+  "gruvbox-material-icons.logLevel": "debug",
 }
 ```
 
